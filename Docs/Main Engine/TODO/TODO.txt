@@ -1,0 +1,42 @@
+inline Matrix3x3& operator*=(const Matrix3x3& rhs)
+		{
+			Matrix3x3 result = Matrix3x3::Zero;
+			for(int i = 0; i < MATRIX_SIZE; i++)
+			{
+				for(int j = 0; j < MATRIX_SIZE; j++)
+				{
+					//F32 temp = (*this)(i, j);
+					//(*this)(i, j) = 0.0f;
+					for(int k = 0; k < MATRIX_SIZE; k++)
+					{
+						result(i, j) += (*this)(i, k) * const_cast<Matrix3x3&>(rhs)(k, j);
+					}
+					//(*this)(i, j) =	(*this)(i, 0) * const_cast<Matrix3x3&>(rhs)(0, j) + 
+					//				(*this)(i, 1) * const_cast<Matrix3x3&>(rhs)(1, j) +
+					//				(*this)(i, 2) * const_cast<Matrix3x3&>(rhs)(2, j) +
+					//				(*this)(i, 3) * const_cast<Matrix3x3&>(rhs)(3, j);
+				}
+			}
+			*this = result;
+
+			return *this;
+		}
+
+inline Matrix3x3& operator*=(const Matrix3x3& rhs)
+		{
+			for(int i = 0; i < MATRIX_SIZE; i++)
+			{
+				for(int j = 0; j < MATRIX_SIZE * MATRIX_SIZE; j++)
+				{
+					(*this)(i, j) =	(*this)(i, 0) * rhs(0, j) + 
+									(*this)(i, 1) * rhs(1, j) +
+									(*this)(i, 2) * rhs(2, j);
+				}
+			}
+
+			return *this;
+		}
+
+figure out why latter causes buffer overrun
+
+12/29: Frustrum, Camera::GetFrustrum, Culler

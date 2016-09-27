@@ -1,0 +1,2 @@
+Physics: sim's not updating when you attach a rigidbody? might have to also attach associated collision objects, look at bullet tutorial code
+	* sim is updating, but debug SHADER is not rendering the box at the object's position; fixed.

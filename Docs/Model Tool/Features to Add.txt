@@ -1,0 +1,9 @@
+* Model previewer?
+	* How do you display the model?
+	
+	* How do you reload the model?
+		* Model's already built inside ModelImporterLibrary,
+		add functions to directly manipulate model data (material GUIDs and colors)
+		* That means using the engine's GUID format - how do you resolve the GUIDs?
+			* Can specify resource files to load.
+			* This also lets you build GUIDs without typing, in theory

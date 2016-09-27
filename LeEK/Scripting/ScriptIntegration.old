@@ -1,0 +1,258 @@
+#ifndef __SCRIPT_INTERFACE_H__
+#define __SCRIPT_INTERFACE_H__
+ 
+//whatever latest ver. is (5.2)
+extern "C" {
+#include <Libraries\Lua_5_2_2\lua.h>
+#include <Libraries\Lua_5_2_2\lualib.h>
+#include <Libraries\Lua_5_2_2\lauxlib.h>
+}
+ 
+#include <Datatypes.h>
+#include <Strings/String.h>
+#include <tuple>
+#include <boost_1_51_0/boost/type_traits/function_traits.hpp>
+
+namespace LeEK
+{
+	namespace script
+	{
+ 
+ 
+		namespace details {
+			// function traits - source: http://functionalcpp.wordpress.com/2013/08/05/function-traits/
+ 
+			template<class F>
+				struct function_traits;
+ 
+ 
+			// function pointer
+			template<class R, class... Args>
+				struct function_traits<R(*)(Args...)> : public function_traits<R(Args...)>
+				{
+				};
+ 
+ 
+			template<class R, class... Args>
+				struct function_traits<R(Args...)>
+				{
+					virtual ~function_traits() {}
+ 
+					using return_type = R;
+ 
+					static const size_t arity = sizeof...(Args);
+ 
+					template <std::size_t N>
+						struct argument
+						{
+							static_assert(N < arity, "error: invalid parameter index");
+							using type = typename std::tuple_element<N,std::tuple<Args...>>::type;
+						};
+				};
+ 
+			// end function traits
+ 
+ 
+			namespace lua {
+ 
+ 
+				inline int lua_var_push(lua_State *lua_state, double v)
+				{
+					lua_pushnumber(lua_state, v);
+					return 1;
+				}
+ 
+ 
+				inline int lua_var_push(lua_State *lua_state, const std::string &v)
+				{
+					lua_pushstring(lua_state, v.c_str());
+					return 1;
+				}
+ 
+ 
+				template <typename T>
+					typename std::enable_if<std::is_arithmetic<T>::value, T>::type
+					lua_var_get(lua_State *lua_state, std::size_t index)
+					{
+						return luaL_checknumber(lua_state, index);
+					}
+ 
+ 
+				template <typename T>
+					typename std::enable_if<std::is_same<T, const char *>::value || std::is_base_of<std::string,
+							 typename std::remove_reference<T>::type>::value, typename std::remove_reference<T>::type>::type
+								 lua_var_get(lua_State *lua_state, std::size_t index)
+								 {
+									 return luaL_checkstring(lua_state, index);
+								 }
+ 
+ 
+	#define ARG(n) (lua_var_get<typename details::function_traits<decltype(f)>:: template argument<(n)>::type>(lua_state, n+1))
+ 
+ 
+				template <typename R>
+					R lua_call_func(lua_State *, R f(void))
+					{
+						return f();
+					}
+ 
+ 
+				template <typename R, typename A0>
+					R lua_call_func(lua_State *lua_state, R f(A0))
+					{
+						return f(ARG(0));
+					}
+ 
+ 
+				template <typename R, typename A0, typename A1>
+					R lua_call_func(lua_State *lua_state, R f(A0, A1))
+					{
+						return f(ARG(0), ARG(1));
+					}
+ 
+ 
+				template <typename R, typename A0, typename A1, typename A2>
+					R lua_call_func(lua_State *lua_state, R f(A0, A1, A2))
+					{
+						return f(ARG(0), ARG(1), ARG(2));
+					}
+ 
+ 
+				template <typename R, typename A0, typename A1, typename A2, typename A3>
+					R lua_call_func(lua_State *lua_state, R f(A0, A1, A2, A3))
+					{
+						return f(ARG(0), ARG(1), ARG(2), ARG(3));
+					}
+ 
+ 
+				template <typename R, typename A0, typename A1, typename A2, typename A3, typename A4>
+					R lua_call_func(lua_State *lua_state, R f(A0, A1, A2, A3, A4))
+					{
+						return f(ARG(0), ARG(1), ARG(2), ARG(3), ARG(4));
+					}
+ 
+ 
+				template <typename R, typename A0, typename A1, typename A2, typename A3, typename A4, typename A5>
+					R lua_call_func(lua_State *lua_state, R f(A0, A1, A2, A3, A4, A5))
+					{
+						return f(ARG(0), ARG(1), ARG(2), ARG(3), ARG(4), ARG(5));
+					}
+ 
+ 
+				template <typename R, typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6>
+					R lua_call_func(lua_State *lua_state, R f(A0, A1, A2, A3, A4, A5, A6))
+					{
+						return f(ARG(0), ARG(1), ARG(2), ARG(3), ARG(4), ARG(5), ARG(6));
+					}
+ 
+ 
+				template <typename R, typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7>
+					R lua_call_func(lua_State *lua_state, R f(A0, A1, A2, A3, A4, A5, A6, A7))
+					{
+						return f(ARG(0), ARG(1), ARG(2), ARG(3), ARG(4), ARG(5), ARG(6), ARG(7));
+					}
+ 
+ 
+				template <typename R, typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8>
+					R lua_call_func(lua_State *lua_state, R f(A0, A1, A2, A3, A4, A5, A6, A7, A8))
+					{
+						return f(ARG(0), ARG(1), ARG(2), ARG(3), ARG(4), ARG(5), ARG(6), ARG(7), ARG(8));
+					}
+ 
+ 
+				template <typename R, typename A0, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8, typename A9>
+					R lua_call_func(lua_State *lua_state, R f(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9))
+					{
+						return f(ARG(0), ARG(1), ARG(2), ARG(3), ARG(4), ARG(5), ARG(6), ARG(7), ARG(8), ARG(9));
+					}
+ 
+ 
+					template <typename T, T *f>
+					struct LuaVoidFunctionWrapper
+					{
+						static int Run(lua_State *lua_state)
+						{
+							if (lua_gettop(lua_state) != boost::function_traits<typename boost::remove_pointer<T>::type>::arity)
+								luaL_error(lua_state, "invalid number of arguments");
+
+							lua_call_func(lua_state, f);
+							return 0;
+						}
+					};
+ 
+ 
+					template <typename T, T *f>
+					struct LuaFunctionWrapper
+					{
+						static int Run(lua_State *lua_state)
+						{
+							if (lua_gettop(lua_state) != boost::function_traits<T>::arity)
+								luaL_error(lua_state, "invalid number of arguments");
+
+							return lua_var_push(lua_state, lua_call_func(lua_state, f));
+						}
+					};
+			}
+ 
+ 
+		}
+ 
+ 
+		class IScriptInterface
+		{
+			public:
+				virtual ~IScriptInterface() {};
+		};
+ 
+ 
+		class ILuaInterface : IScriptInterface
+		{
+			lua_State *lua_state = nullptr;
+ 
+ 
+			void lua_get_error()
+			{
+				const std::string message = lua_tostring(lua_state, -1);
+				lua_pop(lua_state, 1);
+				throw std::runtime_error(message);
+			}
+ 
+ 
+			public:
+			ILuaInterface()
+			{
+				if (!(lua_state = luaL_newstate()))
+					throw std::runtime_error("error: luaL_newstate() failed");
+ 
+				luaL_openlibs(lua_state);
+			}
+ 
+ 
+			ILuaInterface(const ILuaInterface &) = delete;
+			ILuaInterface &operator=(const ILuaInterface &) = delete;
+ 
+ 
+			void register_function(const std::string &name, int function(lua_State *))
+			{
+				lua_register(lua_state, name.c_str(), function);
+			}
+ 
+ 
+			void execute_file(const std::string &path)
+			{
+				if (luaL_dofile(lua_state, path.c_str()))
+					lua_get_error();
+			}
+ 
+ 
+	#define lua_register_function_ret(l, name, f) (l.register_function(name, script::details::lua::LuaFunctionWrapper<decltype(f), f>::Run))
+	#define lua_register_function_void(l, name, f) (l.register_function(name, script::details::lua::LuaVoidFunctionWrapper<decltype(f), f>::Run))
+ 
+			~ILuaInterface()
+			{
+				lua_close(lua_state);
+			}
+		};
+	}
+}
+#endif //__SCRIPT_INTERFACE_H__

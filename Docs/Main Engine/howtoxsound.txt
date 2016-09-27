@@ -1,0 +1,78 @@
+XSound is a sound thing created by Macroshaft. Its main features are its
+cross compatability with ecksbawks and its complete lack of documentation.
+
+So here's how it works.
+
+First things first: You need some headers - one of which comes from the DirectX SDK. Go download it, then add its Include directory
+to the Include directories of the VC++ directories thing in the project properties.
+
+	#include <windows.h>
+	#include "xaudio.h"
+	
+The first include is for the various strange windows voodoo rituals you'll have to do (read: copy-paste).
+The second is for XAudio2 itself.
+MAKE SURE YOU USE QUOTES AND NOT <>.
+MAKE SURE YOU USE QUOTES AND NOT <>.
+MAKE SURE YOU USE QUOTES AND NOT <>.
+If you don't, it will load the Windows 8 version of the header, which is a completely different version that isn't the one you want.
+
+Moving on, there's these three important things that make XAudio2 work:
+
+THE ENGINE: IXAudio2*
+This is the main thing. You have to make one in order to do any XAudio2 things at all.
+
+THE MASTER: IXAudio2MasteringVoice*
+Any sound that gets sent into this thing gets played. You have to attach this to the engine before you can use it. I'll show
+you how to do that shortly.
+
+THE SOURCE(S): IXAudio2SourceVoice*
+These throw sounds at THE ENGINE, which then throws them to THE MASTER. You buffer sounds into them, and they play (well, send) them one
+after another (up to 64 buffered at a time). To play multiple sounds simultaneously, you need to use multiple sources (one for each sound).
+
+In a real program, you'll be initializing them like this:
+
+	IXAudio2* engine; //THE ENGINE
+	IXAudio2SourceVoice* source; //THE SOURCE(S) (in real life this will probably be an array of sources)
+	IXAudio2MasteringVoice* master; //THE MASTER
+
+Now if it was this easy we wouldn't be here discussing this. We have to do some weird initialization things to THE ENGINE
+as well as attaching THE SOURCE(S) and THE MASTER to it.
+
+	CoInitializeEx(NULL, COINIT_MULTITHREADED);		// This has something to so with something called COM. 
+													// I have no idea what that is, but the program
+													// breaks if you don't have this line in it.
+												  
+	XAudio2Create(&engine);							// You have to do this to THE ENGINE to make it actually work.
+	
+	engine->CreateMasteringVoice(&master);			// This links THE MASTER to THE ENGINE so it can recieve sounds.
+	
+	Wave buffer;									// This used to load a .wav using the class from the wave.h thing.
+	
+	buffer.load("sound.wav")						// This actually loads the sound into said thing. It then converts it
+													// into a format that a SOURCE can use, which we can retrieve from it
+													// using Wave.xaBuffer().
+	
+	engine->CreateSourceVoice(&source[x], format)	// This links a SOURCE to THE ENGINE so it can send sounds to it.
+													// The "format" thing is a special format related data type
+													// that contains information about the sound(s) you want to
+													// play with that source (use the Wave.wf() thing for this).
+													
+	source->Start();								// This tells a SOURCE to start throwing any sound it recieves
+													// at THE ENGINE (which will then throw it at THE MASTER which
+													// will play it).
+													
+	source->SubmitSourceBuffer(soundbuffer);		// This dumps a sound onto a SOURCE. It will play (send) it when it
+													// finishes playing (sending) everything else that was dumped on it.
+													// Use Wave.xaBuffer() as soundbuffer.
+													
+That's everything you need (to copypaste) to play a sound. If you're just making a program to test playing sounds,
+now is a good place to put a message box or something so the program doesn't end before the sound finishes playing.
+
+	MessageBox( 0, TEXT("VIRUS = VERY YES"), TEXT("COMPUTER OVER"), MB_OK );
+	
+At the end of the program, we have to uninitialize the engine and that COM thing so they don't get cranky:
+
+	g_engine->Release();
+	CoUninitialize();
+
+That's all.

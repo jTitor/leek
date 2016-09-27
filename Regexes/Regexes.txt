@@ -1,0 +1,5 @@
+//Regexes. First line is the search, second is the replace.
+
+//Virtual function filler (for CRTP). Exclude the return if you only have void functions.
+virtual (.*) (.*\(.*\)) = 0;
+$1 $2\r\n\t\t{\r\n\t\t\treturn ((Derived*)this)->$2;\r\n\t\t}

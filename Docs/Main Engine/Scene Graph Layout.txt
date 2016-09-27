@@ -1,0 +1,28 @@
+Scene Graphs and Renderers 149
+	3.1 The Core Classes 152
+		3.1.1 Motivation for the Classes 153
+		3.1.2 Spatial Hierarchy Design 160
+		3.1.3 Instancing 163
+	3.2 Geometric State 166
+		3.2.1 Transformations 167
+		3.2.2 Bounding Volumes 177
+		3.2.3 The Core Classes and Geometric Updates 184
+	3.3 Geometric Types 196
+		3.3.1 Points 197
+		3.3.2 Line Segments 198
+		3.3.3 Triangle Meshes 200
+		3.3.4 Particles 202
+	3.4 Render State 203
+		3.4.1 Global State 203
+		3.4.2 Lights 223
+		3.4.3 Textures 230
+		3.4.4 Multitexturing 242
+		3.4.5 Effects 248
+		3.4.6 The Core Classes and Render State Updates 251
+	3.5 Renderers and Cameras 259
+		3.5.1 Camera Models 259
+		3.5.2 Basic Architecture for Rendering 276
+		3.5.3 Single-Pass Drawing 281
+		3.5.4 The DrawPrimitive Function 285
+		3.5.5 Cached Textures and Vertex Attributes 292
+		3.5.6 Global Effects and Multipass Support 295

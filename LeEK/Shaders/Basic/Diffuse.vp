@@ -1,0 +1,46 @@
+//GLSL color vertex shader.
+//We want to compile for GL 4.0
+#version 400
+
+//inputs
+layout(location = 0) in vec3 inPosition;
+layout(location = 1) in vec3 inColor;
+layout(location = 2) in vec3 inNormal;
+
+//outputs
+out vec3 color;
+
+//uniforms ("constants")
+uniform mat4 worldMat;
+uniform mat4 viewMat;
+uniform mat4 projectionMat;
+
+//we also need to know about the light!
+uniform vec3 lightDiffuse;
+//assume it's a point light
+//provided in world space
+uniform vec3 lightPos;
+
+//now for the actual program...
+void main(void)
+{
+	mat4 worldViewMat = viewMat * worldMat;
+
+	//first, we get the view space position of this vertex for the frag shader
+	vec4 viewPos = worldViewMat * vec4(inPosition, 1.0f);
+	
+	//now get the world space direction to the light
+	vec3 lightDir = normalize(lightPos - inPosition);
+
+	//and the light's intensity
+	//remember that a dot product can be negative, constrain that!
+	float lum = max(0.0, dot(normalize(inNormal), lightDir));
+	
+	//now we can set the vert shading.
+	//we can handle the vert color by
+	//multiplying it componentwise with the diffuse color.
+	color = lum * lightDiffuse * inColor;
+
+	//don't forget to set the position!
+	gl_Position = projectionMat * viewPos;
+}

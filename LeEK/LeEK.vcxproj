@@ -1,0 +1,1305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseWithDebugData|Win32">
+      <Configuration>ReleaseWithDebugData</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="ReleaseWithDebugData|x64">
+      <Configuration>ReleaseWithDebugData</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E7F10A7E-EF37-4941-9E11-67B3856D71BE}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>LeEK</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="LeEK.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="LeEK.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="LeEK.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="LeEK.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="LeEK.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="LeEK.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(DXSDK_DIR)Include;$(ProjectDir);$(ProjectDir)Libraries;$(Libraries);$(BoostIncludes);$(Libraries)bullet-2.81-rev2613\src;$(Libraries)freetype-2.5.0.1\include;$(Libraries)libogg\include;$(Libraries)libvorbis\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(DXSDK_DIR)Lib\x86;$(Libraries);$(BoostIncludes)\stage\lib\vc110;$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib;$(WindowsSDK_LibraryPath_x86)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\$(Configuration)\$(ProjectName)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(DXSDK_DIR)Include;$(ProjectDir);$(ProjectDir)Libraries;$(Libraries);$(BoostIncludes);$(Libraries)bullet-2.81-rev2613\src;$(Libraries)freetype-2.5.0.1\include;$(Libraries)libogg\include;$(Libraries)libvorbis\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(DXSDK_DIR)Lib\x86;$(Libraries);$(BoostIncludes)\stage\lib\vc110;$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib;$(WindowsSDK_LibraryPath_x86)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(DXSDK_DIR)Include;$(ProjectDir);$(ProjectDir)Libraries;$(Libraries);$(BoostIncludes);$(Libraries)bullet-2.81-rev2613\src;$(Libraries)freetype-2.5.0.1\include;$(Libraries)libogg\include;$(Libraries)libvorbis\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(DXSDK_DIR)Lib\x86;$(Libraries);$(BoostIncludes)\stage\lib\vc110;$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib;$(WindowsSDK_LibraryPath_x86)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\$(Configuration)\$(ProjectName)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(DXSDK_DIR)Include;$(ProjectDir);$(ProjectDir)Libraries;$(Libraries);$(BoostIncludes);$(Libraries)bullet-2.81-rev2613\src;$(Libraries)freetype-2.5.0.1\include;$(Libraries)libogg\include;$(Libraries)libvorbis\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(DXSDK_DIR)Lib\x86;$(Libraries);$(BoostIncludes)\stage\lib\vc110;$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib;$(WindowsSDK_LibraryPath_x86)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(DXSDK_DIR)Include;$(ProjectDir);$(ProjectDir)Libraries;$(Libraries);$(BoostIncludes);$(Libraries)bullet-2.81-rev2613\src;$(Libraries)freetype-2.5.0.1\include;$(Libraries)libogg\include;$(Libraries)libvorbis\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(DXSDK_DIR)Lib\x86;$(Libraries);$(BoostIncludes)\stage\lib\vc110;$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib;$(WindowsSDK_LibraryPath_x86)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\$(Configuration)\$(ProjectName)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(DXSDK_DIR)Include;$(ProjectDir);$(ProjectDir)Libraries;$(Libraries);$(BoostIncludes);$(Libraries)bullet-2.81-rev2613\src;$(Libraries)freetype-2.5.0.1\include;$(Libraries)libogg\include;$(Libraries)libvorbis\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(DXSDK_DIR)Lib\x86;$(Libraries);$(BoostIncludes)\stage\lib\vc110;$(VCInstallDir)lib;$(VCInstallDir)atlmfc\lib;$(WindowsSdkDir)lib;$(FrameworkSDKDir)\lib;$(WindowsSDK_LibraryPath_x86)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ShowIncludes>false</ShowIncludes>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ProgramDataBaseFileName>$(OutDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <DisableSpecificWarnings>
+      </DisableSpecificWarnings>
+      <PrecompiledHeaderFile />
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)\..\..\..\Libraries\boost_1_51_0_vc100\stage\lib\vc100;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;opengl32.lib;winmm.lib;dsound.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>start xcopy "$(ProjectDir)Shaders" "$(OutDir)Shaders" /s /C /R /i /y</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copy required shaders</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <ShowIncludes>false</ShowIncludes>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ProgramDataBaseFileName>$(OutDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <DisableSpecificWarnings>
+      </DisableSpecificWarnings>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)\..\..\..\Libraries\boost_1_51_0_vc100\stage\lib\vc100;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;opengl32.lib;winmm.lib;dsound.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>start xcopy "$(ProjectDir)Shaders" "$(OutDir)Shaders" /s /C /R /i /y</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copy required shaders</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ProgramDataBaseFileName>$(OutDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <DisableSpecificWarnings>
+      </DisableSpecificWarnings>
+      <PrecompiledHeaderFile />
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(ProjectDir)\..\..\..\Libraries\boost_1_51_0_vc100\stage\lib\vc100;$(ProjectDir)Libraries\Bullet_2_81\lib\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;opengl32.lib;winmm.lib;dsound.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>start xcopy "$(ProjectDir)Shaders" "$(OutDir)Shaders" /s /C /R /i /y</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copy required shaders</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ProgramDataBaseFileName>$(OutDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <DisableSpecificWarnings>
+      </DisableSpecificWarnings>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(ProjectDir)\..\..\..\Libraries\boost_1_51_0_vc100\stage\lib\vc100;$(ProjectDir)Libraries\Bullet_2_81\lib\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;opengl32.lib;winmm.lib;dsound.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>start xcopy "$(ProjectDir)Shaders" "$(OutDir)Shaders" /s /C /R /i /y</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copy required shaders</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;RELDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ProgramDataBaseFileName>$(OutDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <DisableSpecificWarnings>
+      </DisableSpecificWarnings>
+      <PrecompiledHeaderFile />
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(ProjectDir)\..\..\..\Libraries\boost_1_51_0_vc100\stage\lib\vc100;$(ProjectDir)Libraries\Bullet_2_81\lib\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;opengl32.lib;winmm.lib;dsound.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>start xcopy "$(ProjectDir)Shaders" "$(OutDir)Shaders" /s /C /R /i /y</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copy required shaders</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;RELDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ProgramDataBaseFileName>$(OutDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <DisableSpecificWarnings>
+      </DisableSpecificWarnings>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(ProjectDir)\..\..\..\Libraries\boost_1_51_0_vc100\stage\lib\vc100;$(ProjectDir)Libraries\Bullet_2_81\lib\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;opengl32.lib;winmm.lib;dsound.lib;dxguid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>start xcopy "$(ProjectDir)Shaders" "$(OutDir)Shaders" /s /C /R /i /y</Command>
+    </PostBuildEvent>
+    <PostBuildEvent>
+      <Message>Copy required shaders</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Audio\AudioManager.cpp" />
+    <ClCompile Include="Audio\SoundInstance.cpp" />
+    <ClCompile Include="Audio\SoundResource.cpp" />
+    <ClCompile Include="Audio\DSoundAudio.cpp" />
+    <ClCompile Include="Audio\SoundLoaders.cpp" />
+    <ClCompile Include="Audio\XAudio2Audio.cpp" />
+    <ClCompile Include="DataStructures\LinkedList.cpp" />
+    <ClCompile Include="DataStructures\OcTree.cpp" />
+    <ClCompile Include="DataStructures\OcTreeNode.cpp" />
+    <ClCompile Include="DebugUtils\CompilerHooks.cpp" />
+    <ClCompile Include="FileManagement\Win32DataStream.cpp" />
+    <ClCompile Include="GraphicsWrappers\Batch.cpp" />
+    <ClCompile Include="Config\Config.cpp" />
+    <ClCompile Include="Constants\ControllerConstants.cpp" />
+    <ClCompile Include="DataStructures\BinaryTree.cpp" />
+    <ClCompile Include="DataStructures\IntrusiveList.cpp" />
+    <ClCompile Include="DebugUtils\Assertions.cpp" />
+    <ClCompile Include="FileManagement\ModelFile.cpp" />
+    <ClCompile Include="GraphicsWrappers\IGraphicsWrapper.cpp" />
+    <ClCompile Include="Input\Input.cpp" />
+    <ClCompile Include="Libraries\Lua\lapi.c" />
+    <ClCompile Include="Libraries\Lua\lauxlib.c" />
+    <ClCompile Include="Libraries\Lua\lbaselib.c" />
+    <ClCompile Include="Libraries\Lua\lbitlib.c" />
+    <ClCompile Include="Libraries\Lua\lcode.c" />
+    <ClCompile Include="Libraries\Lua\lcorolib.c" />
+    <ClCompile Include="Libraries\Lua\lctype.c" />
+    <ClCompile Include="Libraries\Lua\ldblib.c" />
+    <ClCompile Include="Libraries\Lua\ldebug.c" />
+    <ClCompile Include="Libraries\Lua\ldo.c" />
+    <ClCompile Include="Libraries\Lua\ldump.c" />
+    <ClCompile Include="Libraries\Lua\lfunc.c" />
+    <ClCompile Include="Libraries\Lua\lgc.c" />
+    <ClCompile Include="Libraries\Lua\linit.c" />
+    <ClCompile Include="Libraries\Lua\liolib.c" />
+    <ClCompile Include="Libraries\Lua\llex.c" />
+    <ClCompile Include="Libraries\Lua\lmathlib.c" />
+    <ClCompile Include="Libraries\Lua\lmem.c" />
+    <ClCompile Include="Libraries\Lua\loadlib.c" />
+    <ClCompile Include="Libraries\Lua\lobject.c" />
+    <ClCompile Include="Libraries\Lua\lopcodes.c" />
+    <ClCompile Include="Libraries\Lua\loslib.c" />
+    <ClCompile Include="Libraries\Lua\lparser.c" />
+    <ClCompile Include="Libraries\Lua\lstate.c" />
+    <ClCompile Include="Libraries\Lua\lstring.c" />
+    <ClCompile Include="Libraries\Lua\lstrlib.c" />
+    <ClCompile Include="Libraries\Lua\ltable.c" />
+    <ClCompile Include="Libraries\Lua\ltablib.c" />
+    <ClCompile Include="Libraries\Lua\ltm.c" />
+    <ClCompile Include="Libraries\Lua\lua.c" />
+    <ClCompile Include="Libraries\Lua\luac.c" />
+    <ClCompile Include="Libraries\Lua\lundump.c" />
+    <ClCompile Include="Libraries\Lua\lvm.c" />
+    <ClCompile Include="Libraries\Lua\lzio.c" />
+    <ClCompile Include="Libraries\TinyXML2\tinyxml2.cpp" />
+    <ClCompile Include="Platforms\IPlatform.cpp" />
+    <ClCompile Include="Platforms\Win32Platform.cpp" />
+    <ClCompile Include="Rendering\Bounds\Frustum.cpp" />
+    <ClCompile Include="Math\Plane.cpp" />
+    <ClCompile Include="Math\Rectangle.cpp" />
+    <ClCompile Include="Platforms\Win32Helpers.cpp" />
+    <ClCompile Include="Rendering\Bounds\AABBBounds.cpp" />
+    <ClCompile Include="Rendering\Bounds\Bounds.cpp" />
+    <ClCompile Include="Rendering\Bounds\SphereBounds.cpp" />
+    <ClCompile Include="Rendering\Camera\Camera.cpp" />
+    <ClCompile Include="Rendering\Color.cpp" />
+    <ClCompile Include="Rendering\Culling\Culler.cpp" />
+    <ClCompile Include="Rendering\Culling\DummyCuller.cpp" />
+    <ClCompile Include="Rendering\Culling\OcTreeCuller.cpp" />
+    <ClCompile Include="Rendering\Culling\SpatialOcTree.cpp" />
+    <ClCompile Include="Rendering\Font.cpp" />
+    <ClCompile Include="Rendering\Model.cpp" />
+    <ClCompile Include="Rendering\Mesh.cpp" />
+    <ClCompile Include="Rendering\Renderer.cpp" />
+    <ClCompile Include="Rendering\Text.cpp" />
+    <ClCompile Include="Rendering\Texture.cpp" />
+    <ClCompile Include="ResourceManagement\Resource.cpp" />
+    <ClCompile Include="FileManagement\ArchiveTypes.cpp" />
+    <ClCompile Include="ResourceManagement\ResourceArchive.cpp" />
+    <ClCompile Include="ResourceManagement\ResourceLoaders.cpp" />
+    <ClCompile Include="ResourceManagement\ResourceManager.cpp" />
+    <ClCompile Include="EngineLogic\SceneGraph\Scene.cpp" />
+    <ClCompile Include="Stats\AllocStats.cpp" />
+    <ClCompile Include="Stats\Profiling.cpp" />
+    <ClCompile Include="Stats\StatMonitor.cpp" />
+    <ClCompile Include="Strings\StringUtils.cpp" />
+    <ClCompile Include="EngineLogic\EventSystem\Event.cpp" />
+    <ClCompile Include="EngineLogic\EventSystem\EventManager.cpp" />
+    <ClCompile Include="EngineLogic\Game.cpp" />
+    <ClCompile Include="EngineLogic\IDManager.cpp" />
+    <ClCompile Include="Memory\Handle.cpp" />
+    <ClCompile Include="EngineLogic\Actor.cpp" />
+    <ClCompile Include="Memory\Allocator.cpp" />
+    <ClCompile Include="FileManagement\StdLibDataStream.cpp" />
+    <ClCompile Include="FileManagement\path.cpp" />
+    <ClCompile Include="Constants\GraphicsConstants.cpp" />
+    <ClCompile Include="Hashing\Hash.cpp" />
+    <ClCompile Include="Hashing\HashedString.cpp" />
+    <ClCompile Include="Libraries\MurmurHash3\MurmurHash3.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Logging\Log.cpp" />
+    <ClCompile Include="Physics\Physics.cpp" />
+    <ClCompile Include="Random\Random.cpp" />
+    <ClCompile Include="Stats\FPSCounter.cpp" />
+    <ClCompile Include="Strings\String.cpp" />
+    <ClCompile Include="DataStructures\RedBlackTreeBase.cpp" />
+    <ClCompile Include="Rendering\Geometry.cpp">
+      <WholeProgramOptimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</WholeProgramOptimization>
+      <WholeProgramOptimization Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">false</WholeProgramOptimization>
+    </ClCompile>
+    <ClCompile Include="Rendering\Shader.cpp" />
+    <ClCompile Include="MultiThreading\StdThreading.cpp" />
+    <ClCompile Include="EngineLogic\SceneGraph\ModelNode.cpp" />
+    <ClCompile Include="EngineLogic\SceneGraph\GroupingNode.cpp" />
+    <ClCompile Include="EngineLogic\SceneGraph\LightNode.cpp" />
+    <ClCompile Include="EngineLogic\SceneGraph\SpatialNode.cpp" />
+    <ClCompile Include="EngineLogic\SceneGraph\VisibleSet.cpp" />
+    <ClCompile Include="Time\DateTime.cpp" />
+    <ClCompile Include="Time\Duration.cpp" />
+    <ClCompile Include="FileManagement\Filesystem.cpp" />
+    <ClCompile Include="Time\GameTime.cpp" />
+    <ClCompile Include="Libraries\GL_Loaders\GLX\glx_core_4_3.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">NotUsing</PrecompiledHeader>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">CompileAsC</CompileAs>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Libraries\GL_Loaders\GL\gl_core_4_3.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">NotUsing</PrecompiledHeader>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="Libraries\GL_Loaders\WGL\wgl_core_4_3.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">NotUsing</PrecompiledHeader>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClCompile Include="Math\MathFunctions.cpp" />
+    <ClCompile Include="Math\Matrix3x3.cpp" />
+    <ClCompile Include="Math\Matrix4x4.cpp" />
+    <ClCompile Include="Math\Quaternion.cpp" />
+    <ClCompile Include="Math\Vector2.cpp" />
+    <ClCompile Include="Math\Vector3.cpp" />
+    <ClCompile Include="Math\Vector4.cpp" />
+    <ClCompile Include="GraphicsWrappers\OGLGrpWrapper.cpp" />
+    <ClCompile Include="EngineLogic\Transform.cpp" />
+    <ClCompile Include="UI\Label.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Audio\AudioManager.h" />
+    <ClInclude Include="Audio\ISoundInstance.h" />
+    <ClInclude Include="Audio\SoundInstance.h" />
+    <ClInclude Include="Audio\SoundResource.h" />
+    <ClInclude Include="Audio\DSoundAudio.h" />
+    <ClInclude Include="Audio\SoundLoaders.h" />
+    <ClInclude Include="Audio\Win32AudioHelpers.h" />
+    <ClInclude Include="Audio\XAudio2Audio.h" />
+    <ClInclude Include="DataStructures\LinkedList.h" />
+    <ClInclude Include="DataStructures\OcTree.h" />
+    <ClInclude Include="DataStructures\OcTreeBase.h" />
+    <ClInclude Include="DataStructures\OcTreeNode.h" />
+    <ClInclude Include="DebugUtils\CompilerHooks.h" />
+    <ClInclude Include="FileManagement\AsyncDataStream.h" />
+    <ClInclude Include="FileManagement\Win32DataStream.h" />
+    <ClInclude Include="GraphicsWrappers\Batch.h" />
+    <ClInclude Include="Config\Config.h" />
+    <ClInclude Include="Constants\ControllerConstants.h" />
+    <ClInclude Include="DataStructures\BinaryTree.h" />
+    <ClInclude Include="DataStructures\IntrusiveList.h" />
+    <ClInclude Include="DataStructures\STLContainers.h" />
+    <ClInclude Include="DataStructures\STLStreams.h" />
+    <ClInclude Include="FileManagement\IStrStream.h" />
+    <ClInclude Include="FileManagement\ModelFile.h" />
+    <ClInclude Include="GraphicsWrappers\NullGrpWrapper.h" />
+    <ClInclude Include="Hashing\HashTable.h" />
+    <ClInclude Include="Helpers\StrOps.h" />
+    <ClInclude Include="Input\Input.h" />
+    <ClInclude Include="Libraries\Assimp\ai_assert.h" />
+    <ClInclude Include="Libraries\Assimp\anim.h" />
+    <ClInclude Include="Libraries\Assimp\camera.h" />
+    <ClInclude Include="Libraries\Assimp\cexport.h" />
+    <ClInclude Include="Libraries\Assimp\cfileio.h" />
+    <ClInclude Include="Libraries\Assimp\cimport.h" />
+    <ClInclude Include="Libraries\Assimp\color4.h" />
+    <ClInclude Include="Libraries\Assimp\config.h" />
+    <ClInclude Include="Libraries\Assimp\DefaultLogger.hpp" />
+    <ClInclude Include="Libraries\Assimp\defs.h" />
+    <ClInclude Include="Libraries\Assimp\Exporter.hpp" />
+    <ClInclude Include="Libraries\Assimp\Importer.hpp" />
+    <ClInclude Include="Libraries\Assimp\importerdesc.h" />
+    <ClInclude Include="Libraries\Assimp\IOStream.hpp" />
+    <ClInclude Include="Libraries\Assimp\IOSystem.hpp" />
+    <ClInclude Include="Libraries\Assimp\light.h" />
+    <ClInclude Include="Libraries\Assimp\Logger.hpp" />
+    <ClInclude Include="Libraries\Assimp\LogStream.hpp" />
+    <ClInclude Include="Libraries\Assimp\material.h" />
+    <ClInclude Include="Libraries\Assimp\matrix3x3.h" />
+    <ClInclude Include="Libraries\Assimp\matrix4x4.h" />
+    <ClInclude Include="Libraries\Assimp\mesh.h" />
+    <ClInclude Include="Libraries\Assimp\NullLogger.hpp" />
+    <ClInclude Include="Libraries\Assimp\postprocess.h" />
+    <ClInclude Include="Libraries\Assimp\ProgressHandler.hpp" />
+    <ClInclude Include="Libraries\Assimp\quaternion.h" />
+    <ClInclude Include="Libraries\Assimp\scene.h" />
+    <ClInclude Include="Libraries\Assimp\texture.h" />
+    <ClInclude Include="Libraries\Assimp\types.h" />
+    <ClInclude Include="Libraries\Assimp\vector2.h" />
+    <ClInclude Include="Libraries\Assimp\vector3.h" />
+    <ClInclude Include="Libraries\Assimp\version.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletSoftBody\btDefaultSoftBodySolver.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletSoftBody\btSoftBody.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletSoftBody\btSoftBodyConcaveCollisionAlgorithm.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletSoftBody\btSoftBodyData.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletSoftBody\btSoftBodyHelpers.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletSoftBody\btSoftBodyInternals.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletSoftBody\btSoftBodyRigidBodyCollisionConfiguration.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletSoftBody\btSoftBodySolvers.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletSoftBody\btSoftBodySolverVertexBuffer.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletSoftBody\btSoftRigidCollisionAlgorithm.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletSoftBody\btSoftRigidDynamicsWorld.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletSoftBody\btSoftSoftCollisionAlgorithm.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletSoftBody\btSparseSDF.h" />
+    <ClInclude Include="Libraries\LuaBridge\detail\CFunctions.h" />
+    <ClInclude Include="Libraries\LuaBridge\detail\ClassInfo.h" />
+    <ClInclude Include="Libraries\LuaBridge\detail\Constructor.h" />
+    <ClInclude Include="Libraries\LuaBridge\detail\dump.h" />
+    <ClInclude Include="Libraries\LuaBridge\detail\FuncTraits.h" />
+    <ClInclude Include="Libraries\LuaBridge\detail\Iterator.h" />
+    <ClInclude Include="Libraries\LuaBridge\detail\LuaException.h" />
+    <ClInclude Include="Libraries\LuaBridge\detail\LuaHelpers.h" />
+    <ClInclude Include="Libraries\LuaBridge\detail\LuaRef.h" />
+    <ClInclude Include="Libraries\LuaBridge\detail\Namespace.h" />
+    <ClInclude Include="Libraries\LuaBridge\detail\Stack.h" />
+    <ClInclude Include="Libraries\LuaBridge\detail\TypeList.h" />
+    <ClInclude Include="Libraries\LuaBridge\detail\TypeTraits.h" />
+    <ClInclude Include="Libraries\LuaBridge\detail\Userdata.h" />
+    <ClInclude Include="Libraries\LuaBridge\LuaBridge.h" />
+    <ClInclude Include="Libraries\LuaBridge\RefCountedObject.h" />
+    <ClInclude Include="Libraries\LuaBridge\RefCountedPtr.h" />
+    <ClInclude Include="Libraries\Lua\lapi.h" />
+    <ClInclude Include="Libraries\Lua\lauxlib.h" />
+    <ClInclude Include="Libraries\Lua\lcode.h" />
+    <ClInclude Include="Libraries\Lua\lctype.h" />
+    <ClInclude Include="Libraries\Lua\ldebug.h" />
+    <ClInclude Include="Libraries\Lua\ldo.h" />
+    <ClInclude Include="Libraries\Lua\lfunc.h" />
+    <ClInclude Include="Libraries\Lua\lgc.h" />
+    <ClInclude Include="Libraries\Lua\llex.h" />
+    <ClInclude Include="Libraries\Lua\llimits.h" />
+    <ClInclude Include="Libraries\Lua\lmem.h" />
+    <ClInclude Include="Libraries\Lua\lobject.h" />
+    <ClInclude Include="Libraries\Lua\lopcodes.h" />
+    <ClInclude Include="Libraries\Lua\lparser.h" />
+    <ClInclude Include="Libraries\Lua\lstate.h" />
+    <ClInclude Include="Libraries\Lua\lstring.h" />
+    <ClInclude Include="Libraries\Lua\ltable.h" />
+    <ClInclude Include="Libraries\Lua\ltm.h" />
+    <ClInclude Include="Libraries\Lua\lua.h" />
+    <ClInclude Include="Libraries\Lua\lua.hpp" />
+    <ClInclude Include="Libraries\Lua\luaconf.h" />
+    <ClInclude Include="Libraries\Lua\lualib.h" />
+    <ClInclude Include="Libraries\Lua\lundump.h" />
+    <ClInclude Include="Libraries\Lua\lvm.h" />
+    <ClInclude Include="Libraries\Lua\lzio.h" />
+    <ClInclude Include="Libraries\PNG++\color.hpp" />
+    <ClInclude Include="Libraries\PNG++\config.hpp" />
+    <ClInclude Include="Libraries\PNG++\consumer.hpp" />
+    <ClInclude Include="Libraries\PNG++\convert_color_space.hpp" />
+    <ClInclude Include="Libraries\PNG++\end_info.hpp" />
+    <ClInclude Include="Libraries\PNG++\error.hpp" />
+    <ClInclude Include="Libraries\PNG++\ga_pixel.hpp" />
+    <ClInclude Include="Libraries\PNG++\generator.hpp" />
+    <ClInclude Include="Libraries\PNG++\gray_pixel.hpp" />
+    <ClInclude Include="Libraries\PNG++\image.hpp" />
+    <ClInclude Include="Libraries\PNG++\image_info.hpp" />
+    <ClInclude Include="Libraries\PNG++\index_pixel.hpp" />
+    <ClInclude Include="Libraries\PNG++\info.hpp" />
+    <ClInclude Include="Libraries\PNG++\info_base.hpp" />
+    <ClInclude Include="Libraries\PNG++\io_base.hpp" />
+    <ClInclude Include="Libraries\PNG++\packed_pixel.hpp" />
+    <ClInclude Include="Libraries\PNG++\palette.hpp" />
+    <ClInclude Include="Libraries\PNG++\pixel_buffer.hpp" />
+    <ClInclude Include="Libraries\PNG++\pixel_traits.hpp" />
+    <ClInclude Include="Libraries\PNG++\png.h" />
+    <ClInclude Include="Libraries\PNG++\png.hpp" />
+    <ClInclude Include="Libraries\PNG++\pngconf.h" />
+    <ClInclude Include="Libraries\PNG++\pngdebug.h" />
+    <ClInclude Include="Libraries\PNG++\pnginfo.h" />
+    <ClInclude Include="Libraries\PNG++\pnglibconf.h" />
+    <ClInclude Include="Libraries\PNG++\pngpriv.h" />
+    <ClInclude Include="Libraries\PNG++\pngstruct.h" />
+    <ClInclude Include="Libraries\PNG++\reader.hpp" />
+    <ClInclude Include="Libraries\PNG++\require_color_space.hpp" />
+    <ClInclude Include="Libraries\PNG++\rgba_pixel.hpp" />
+    <ClInclude Include="Libraries\PNG++\rgb_pixel.hpp" />
+    <ClInclude Include="Libraries\PNG++\streaming_base.hpp" />
+    <ClInclude Include="Libraries\PNG++\tRNS.hpp" />
+    <ClInclude Include="Libraries\PNG++\types.hpp" />
+    <ClInclude Include="Libraries\PNG++\writer.hpp" />
+    <ClInclude Include="Libraries\TinyXML2\tinyxml2.h" />
+    <ClInclude Include="Libraries\Zlib\zconf.h" />
+    <ClInclude Include="Libraries\Zlib\zlib.h" />
+    <ClInclude Include="Platforms\IPlatform.h" />
+    <ClInclude Include="Platforms\PlatformCommon.h" />
+    <ClInclude Include="Platforms\Win32Platform.h" />
+    <ClInclude Include="Rendering\Bounds\Frustum.h" />
+    <ClInclude Include="Math\Plane.h" />
+    <ClInclude Include="Math\Rectangle.h" />
+    <ClInclude Include="Platforms\Win32Helpers.h" />
+    <ClInclude Include="Rendering\Bounds\AABBBounds.h" />
+    <ClInclude Include="Rendering\Bounds\Bounds.h" />
+    <ClInclude Include="Rendering\Bounds\SphereBounds.h" />
+    <ClInclude Include="Rendering\Camera\Camera.h" />
+    <ClInclude Include="Rendering\Culling\Culler.h" />
+    <ClInclude Include="Rendering\Culling\DummyCuller.h" />
+    <ClInclude Include="Rendering\Culling\OcTreeCuller.h" />
+    <ClInclude Include="Rendering\Culling\SpatialOcTree.h" />
+    <ClInclude Include="Rendering\Font.h" />
+    <ClInclude Include="Rendering\IEffect.h" />
+    <ClInclude Include="Rendering\Material.h" />
+    <ClInclude Include="Rendering\Model.h" />
+    <ClInclude Include="Rendering\Mesh.h" />
+    <ClInclude Include="Rendering\Renderer.h" />
+    <ClInclude Include="Rendering\ShaderKeywords.h" />
+    <ClInclude Include="Rendering\Text.h" />
+    <ClInclude Include="Rendering\Texture.h" />
+    <ClInclude Include="ResourceManagement\IResourceLoader.h" />
+    <ClInclude Include="ResourceManagement\Resource.h" />
+    <ClInclude Include="ResourceManagement\IResourceArchive.h" />
+    <ClInclude Include="FileManagement\ArchiveTypes.h" />
+    <ClInclude Include="ResourceManagement\ResourceArchive.h" />
+    <ClInclude Include="ResourceManagement\ResourceLoaders.h" />
+    <ClInclude Include="ResourceManagement\ResourceManager.h" />
+    <ClInclude Include="EngineLogic\SceneGraph\Scene.h" />
+    <ClInclude Include="Scripting\ScriptIntegration.h" />
+    <ClInclude Include="Stats\AllocStats.h" />
+    <ClInclude Include="Stats\IStatDisplayer.h" />
+    <ClInclude Include="Stats\IStatCollector.h" />
+    <ClInclude Include="Stats\Profiling.h" />
+    <ClInclude Include="Stats\StatMonitor.h" />
+    <ClInclude Include="Strings\StringUtils.h" />
+    <ClInclude Include="EngineLogic\EventSystem\Event.h" />
+    <ClInclude Include="EngineLogic\EventSystem\EventManager.h" />
+    <ClInclude Include="EngineLogic\Game.h" />
+    <ClInclude Include="EngineLogic\IBaseGame.h" />
+    <ClInclude Include="EngineLogic\IDManager.h" />
+    <ClInclude Include="Memory\Handle.h" />
+    <ClInclude Include="Math\Vectors.h" />
+    <ClInclude Include="EngineLogic\Actor.h" />
+    <ClInclude Include="Constants\AllocTypes.h" />
+    <ClInclude Include="Constants\LogTags.h" />
+    <ClInclude Include="DebugUtils\Assertions.h" />
+    <ClInclude Include="Memory\HeapLayers.h" />
+    <ClInclude Include="Memory\Allocator.h" />
+    <ClInclude Include="Constants\PhysicsConstants.h" />
+    <ClInclude Include="Rendering\Color.h" />
+    <ClInclude Include="Constants\Constants.h" />
+    <ClInclude Include="FileManagement\DataStream.h" />
+    <ClInclude Include="Datatypes.h" />
+    <ClInclude Include="FileManagement\StdLibDataStream.h" />
+    <ClInclude Include="FileManagement\path.h" />
+    <ClInclude Include="Constants\GraphicsConstants.h" />
+    <ClInclude Include="Hashing\HashedString.h" />
+    <ClInclude Include="Hashing\Hash.h" />
+    <ClInclude Include="Hashing\HashMap.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\btBulletCollisionCommon.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\btBulletDynamicsCommon.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\Bullet-C-Api.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\BroadphaseCollision\btAxisSweep3.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\BroadphaseCollision\btBroadphaseInterface.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\BroadphaseCollision\btBroadphaseProxy.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\BroadphaseCollision\btCollisionAlgorithm.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\BroadphaseCollision\btDbvt.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\BroadphaseCollision\btDbvtBroadphase.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\BroadphaseCollision\btDispatcher.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\BroadphaseCollision\btMultiSapBroadphase.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\BroadphaseCollision\btOverlappingPairCache.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\BroadphaseCollision\btOverlappingPairCallback.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\BroadphaseCollision\btQuantizedBvh.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\BroadphaseCollision\btSimpleBroadphase.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionDispatch\btActivatingCollisionAlgorithm.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionDispatch\btBox2dBox2dCollisionAlgorithm.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionDispatch\btBoxBoxCollisionAlgorithm.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionDispatch\btBoxBoxDetector.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionDispatch\btCollisionConfiguration.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionDispatch\btCollisionCreateFunc.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionDispatch\btCollisionDispatcher.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionDispatch\btCollisionObject.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionDispatch\btCollisionObjectWrapper.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionDispatch\btCollisionWorld.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionDispatch\btCompoundCollisionAlgorithm.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionDispatch\btConvex2dConvex2dAlgorithm.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionDispatch\btConvexConcaveCollisionAlgorithm.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionDispatch\btConvexConvexAlgorithm.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionDispatch\btConvexPlaneCollisionAlgorithm.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionDispatch\btDefaultCollisionConfiguration.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionDispatch\btEmptyCollisionAlgorithm.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionDispatch\btGhostObject.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionDispatch\btInternalEdgeUtility.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionDispatch\btManifoldResult.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionDispatch\btSimulationIslandManager.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionDispatch\btSphereBoxCollisionAlgorithm.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionDispatch\btSphereSphereCollisionAlgorithm.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionDispatch\btSphereTriangleCollisionAlgorithm.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionDispatch\btUnionFind.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionDispatch\SphereTriangleDetector.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btBox2dShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btBoxShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btBvhTriangleMeshShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btCapsuleShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btCollisionMargin.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btCollisionShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btCompoundShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btConcaveShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btConeShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btConvex2dShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btConvexHullShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btConvexInternalShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btConvexPointCloudShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btConvexPolyhedron.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btConvexShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btConvexTriangleMeshShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btCylinderShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btEmptyShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btHeightfieldTerrainShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btMaterial.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btMinkowskiSumShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btMultimaterialTriangleMeshShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btMultiSphereShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btOptimizedBvh.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btPolyhedralConvexShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btScaledBvhTriangleMeshShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btShapeHull.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btSphereShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btStaticPlaneShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btStridingMeshInterface.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btTetrahedronShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btTriangleBuffer.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btTriangleCallback.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btTriangleIndexVertexArray.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btTriangleIndexVertexMaterialArray.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btTriangleInfoMap.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btTriangleMesh.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btTriangleMeshShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btTriangleShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\CollisionShapes\btUniformScalingShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\btBoxCollision.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\btClipPolygon.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\btContactProcessing.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\btGenericPoolAllocator.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\btGeometryOperations.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\btGImpactBvh.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\btGImpactCollisionAlgorithm.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\btGImpactMassUtil.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\btGImpactQuantizedBvh.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\btGImpactShape.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\btQuantization.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\btTriangleShapeEx.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\gim_array.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\gim_basic_geometry_operations.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\gim_bitset.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\gim_box_collision.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\gim_box_set.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\gim_clip_polygon.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\gim_contact.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\gim_geometry.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\gim_geom_types.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\gim_hash_table.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\gim_linear_math.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\gim_math.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\gim_memory.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\gim_radixsort.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\Gimpact\gim_tri_collision.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\NarrowPhaseCollision\btContinuousConvexCollision.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\NarrowPhaseCollision\btConvexCast.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\NarrowPhaseCollision\btConvexPenetrationDepthSolver.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\NarrowPhaseCollision\btDiscreteCollisionDetectorInterface.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\NarrowPhaseCollision\btGjkConvexCast.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\NarrowPhaseCollision\btGjkEpa2.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\NarrowPhaseCollision\btGjkEpaPenetrationDepthSolver.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\NarrowPhaseCollision\btGjkPairDetector.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\NarrowPhaseCollision\btManifoldPoint.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\NarrowPhaseCollision\btMinkowskiPenetrationDepthSolver.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\NarrowPhaseCollision\btPersistentManifold.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\NarrowPhaseCollision\btPointCollector.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\NarrowPhaseCollision\btPolyhedralContactClipping.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\NarrowPhaseCollision\btRaycastCallback.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\NarrowPhaseCollision\btSimplexSolverInterface.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\NarrowPhaseCollision\btSubSimplexConvexCast.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletCollision\NarrowPhaseCollision\btVoronoiSimplexSolver.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\Character\btCharacterControllerInterface.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\Character\btKinematicCharacterController.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\ConstraintSolver\btConeTwistConstraint.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\ConstraintSolver\btConstraintSolver.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\ConstraintSolver\btContactConstraint.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\ConstraintSolver\btContactSolverInfo.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\ConstraintSolver\btGearConstraint.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\ConstraintSolver\btGeneric6DofConstraint.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\ConstraintSolver\btGeneric6DofSpringConstraint.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\ConstraintSolver\btHinge2Constraint.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\ConstraintSolver\btHingeConstraint.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\ConstraintSolver\btJacobianEntry.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\ConstraintSolver\btPoint2PointConstraint.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\ConstraintSolver\btSequentialImpulseConstraintSolver.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\ConstraintSolver\btSliderConstraint.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\ConstraintSolver\btSolve2LinearConstraint.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\ConstraintSolver\btSolverBody.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\ConstraintSolver\btSolverConstraint.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\ConstraintSolver\btTypedConstraint.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\ConstraintSolver\btUniversalConstraint.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\Dynamics\btActionInterface.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\Dynamics\btDiscreteDynamicsWorld.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\Dynamics\btDynamicsWorld.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\Dynamics\btRigidBody.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\Dynamics\btSimpleDynamicsWorld.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\Vehicle\btRaycastVehicle.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\Vehicle\btVehicleRaycaster.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletDynamics\Vehicle\btWheelInfo.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\btGpu3DGridBroadphase.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\btGpu3DGridBroadphaseSharedCode.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\btGpu3DGridBroadphaseSharedDefs.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\btGpu3DGridBroadphaseSharedTypes.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\btGpuDefines.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\btGpuUtilsSharedCode.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\btGpuUtilsSharedDefs.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\btParallelConstraintSolver.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\btThreadSupportInterface.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\GpuSoftBodySolvers\DX11\btSoftBodySolverBuffer_DX11.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\GpuSoftBodySolvers\DX11\btSoftBodySolverLinkData_DX11.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\GpuSoftBodySolvers\DX11\btSoftBodySolverLinkData_DX11SIMDAware.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\GpuSoftBodySolvers\DX11\btSoftBodySolverTriangleData_DX11.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\GpuSoftBodySolvers\DX11\btSoftBodySolverVertexBuffer_DX11.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\GpuSoftBodySolvers\DX11\btSoftBodySolverVertexData_DX11.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\GpuSoftBodySolvers\DX11\btSoftBodySolver_DX11.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\GpuSoftBodySolvers\DX11\btSoftBodySolver_DX11SIMDAware.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\GpuSoftBodySolvers\OpenCL\btSoftBodySolverBuffer_OpenCL.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\GpuSoftBodySolvers\OpenCL\btSoftBodySolverLinkData_OpenCL.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\GpuSoftBodySolvers\OpenCL\btSoftBodySolverLinkData_OpenCLSIMDAware.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\GpuSoftBodySolvers\OpenCL\btSoftBodySolverOutputCLtoGL.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\GpuSoftBodySolvers\OpenCL\btSoftBodySolverTriangleData_OpenCL.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\GpuSoftBodySolvers\OpenCL\btSoftBodySolverVertexBuffer_OpenGL.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\GpuSoftBodySolvers\OpenCL\btSoftBodySolverVertexData_OpenCL.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\GpuSoftBodySolvers\OpenCL\btSoftBodySolver_OpenCL.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\GpuSoftBodySolvers\OpenCL\btSoftBodySolver_OpenCLSIMDAware.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\GpuSoftBodySolvers\Shared\btSoftBodySolverData.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\HeapManager.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\PlatformDefinitions.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\PosixThreadSupport.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\PpuAddressSpace.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\SequentialThreadSupport.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\SpuCollisionObjectWrapper.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\SpuCollisionTaskProcess.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\SpuContactManifoldCollisionAlgorithm.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\SpuDoubleBuffer.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\SpuFakeDma.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\SpuGatheringCollisionDispatcher.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\SpuLibspe2Support.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\SpuNarrowPhaseCollisionTask\Box.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\SpuNarrowPhaseCollisionTask\boxBoxDistance.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\SpuNarrowPhaseCollisionTask\SpuCollisionShapes.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\SpuNarrowPhaseCollisionTask\SpuContactResult.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\SpuNarrowPhaseCollisionTask\SpuConvexPenetrationDepthSolver.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\SpuNarrowPhaseCollisionTask\SpuGatheringCollisionTask.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\SpuNarrowPhaseCollisionTask\SpuLocalSupport.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\SpuNarrowPhaseCollisionTask\SpuMinkowskiPenetrationDepthSolver.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\SpuNarrowPhaseCollisionTask\SpuPreferredPenetrationDirections.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\SpuSampleTaskProcess.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\SpuSampleTask\SpuSampleTask.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\SpuSync.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\TrbDynBody.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\TrbStateVec.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\vectormath2bullet.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\BulletMultiThreaded\Win32ThreadSupport.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\LinearMath\btAabbUtil2.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\LinearMath\btAlignedAllocator.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\LinearMath\btAlignedObjectArray.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\LinearMath\btConvexHull.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\LinearMath\btConvexHullComputer.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\LinearMath\btDefaultMotionState.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\LinearMath\btGeometryUtil.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\LinearMath\btGrahamScan2dConvexHull.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\LinearMath\btHashMap.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\LinearMath\btIDebugDraw.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\LinearMath\btList.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\LinearMath\btMatrix3x3.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\LinearMath\btMinMax.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\LinearMath\btMotionState.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\LinearMath\btPolarDecomposition.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\LinearMath\btPoolAllocator.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\LinearMath\btQuadWord.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\LinearMath\btQuaternion.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\LinearMath\btQuickprof.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\LinearMath\btRandom.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\LinearMath\btScalar.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\LinearMath\btSerializer.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\LinearMath\btStackAlloc.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\LinearMath\btTransform.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\LinearMath\btTransformUtil.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\LinearMath\btVector3.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\vectormath\neon\boolInVec.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\vectormath\neon\floatInVec.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\vectormath\neon\mat_aos.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\vectormath\neon\quat_aos.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\vectormath\neon\vectormath_aos.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\vectormath\neon\vec_aos.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\vectormath\scalar\boolInVec.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\vectormath\scalar\floatInVec.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\vectormath\scalar\mat_aos.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\vectormath\scalar\quat_aos.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\vectormath\scalar\vectormath_aos.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\vectormath\scalar\vec_aos.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\vectormath\sse\boolInVec.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\vectormath\sse\floatInVec.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\vectormath\sse\mat_aos.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\vectormath\sse\quat_aos.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\vectormath\sse\vecidx_aos.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\vectormath\sse\vectormath_aos.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\vectormath\sse\vec_aos.h" />
+    <ClInclude Include="Libraries\Bullet_2_81\src\vectormath\vmInclude.h" />
+    <ClInclude Include="Libraries\MurmurHash3\MurmurHash3.h" />
+    <ClInclude Include="Logging\Log.h" />
+    <ClInclude Include="Memory\STLAllocHook.h" />
+    <ClInclude Include="MultiThreading\IThreadClient.h" />
+    <ClInclude Include="MultiThreading\StdThreading.h" />
+    <ClInclude Include="Physics\Physics.h" />
+    <ClInclude Include="Random\Random.h" />
+    <ClInclude Include="DataStructures\RedBlackTreeBase.h" />
+    <ClInclude Include="Rendering\Geometry.h" />
+    <ClInclude Include="Rendering\Shader.h" />
+    <ClInclude Include="Stats\FPSCounter.h" />
+    <ClInclude Include="EngineLogic\IEngineModule.h" />
+    <ClInclude Include="EngineLogic\SceneGraph\ModelNode.h" />
+    <ClInclude Include="EngineLogic\SceneGraph\GroupingNode.h" />
+    <ClInclude Include="EngineLogic\SceneGraph\LightNode.h" />
+    <ClInclude Include="EngineLogic\SceneGraph\SpatialNode.h" />
+    <ClInclude Include="EngineLogic\SceneGraph\VisibleSet.h" />
+    <ClInclude Include="MultiThreading\IThreading.h" />
+    <ClInclude Include="Time\DateTime.h" />
+    <ClInclude Include="Time\Duration.h" />
+    <ClInclude Include="EndianOperations.h" />
+    <ClInclude Include="FileManagement\Filesystem.h" />
+    <ClInclude Include="Time\GameTime.h" />
+    <ClInclude Include="Libraries\GL_Loaders\GLX\glx_core_4_3.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Libraries\GL_Loaders\GL\gl_core_4_3.h" />
+    <ClInclude Include="Libraries\GL_Loaders\WGL\wgl_core_4_3.h" />
+    <ClInclude Include="Math\MathFunctions.h" />
+    <ClInclude Include="Math\Matrix3x3.h" />
+    <ClInclude Include="Math\Matrix4x4.h" />
+    <ClInclude Include="Math\Quaternion.h" />
+    <ClInclude Include="Math\Vector2.h" />
+    <ClInclude Include="Math\Vector3.h" />
+    <ClInclude Include="Math\Vector4.h" />
+    <ClInclude Include="GraphicsWrappers\OGLGrpWrapper.h" />
+    <ClInclude Include="GraphicsWrappers\IGraphicsWrapper.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Strings\String.h" />
+    <ClInclude Include="EngineLogic\Transform.h" />
+    <ClInclude Include="UI\Label.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Libraries\Assimp\color4.inl" />
+    <None Include="Libraries\Assimp\material.inl" />
+    <None Include="Libraries\Assimp\matrix3x3.inl" />
+    <None Include="Libraries\Assimp\matrix4x4.inl" />
+    <None Include="Libraries\Assimp\quaternion.inl" />
+    <None Include="Libraries\Assimp\vector2.inl" />
+    <None Include="Libraries\Assimp\vector3.inl" />
+    <None Include="Libraries\Bullet_2_81\lib\Debug\bulletcollision_debug.pdb">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="Libraries\Bullet_2_81\lib\Debug\bulletdynamics_debug.pdb">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="Libraries\Bullet_2_81\lib\Debug\bulletmultithreaded_debug.pdb">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="Libraries\Bullet_2_81\lib\Debug\bulletsoftbodysolvers_dx11_debug.pdb">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="Libraries\Bullet_2_81\lib\Debug\bulletsoftbodysolvers_opencl_mini_debug.pdb">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="Libraries\Bullet_2_81\lib\Debug\bulletsoftbody_debug.pdb">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="Libraries\Bullet_2_81\lib\Debug\linearmath_debug.pdb">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="Libraries\Bullet_2_81\lib\Debug\minicl_debug.pdb">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="Libraries\Zlib\zlibstaticd.pdb">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">true</ExcludedFromBuild>
+    </None>
+    <None Include="Shaders\Basic\Color.fp" />
+    <None Include="Shaders\Basic\Color.vp" />
+    <None Include="Shaders\Basic\Diffuse.fp" />
+    <None Include="Shaders\Basic\Diffuse.vp" />
+    <None Include="Shaders\Basic\DiffuseTextured.fp" />
+    <None Include="Shaders\Basic\DiffuseTextured.vp" />
+    <None Include="Shaders\Basic\Text.fp" />
+    <None Include="Shaders\Basic\Text.vp" />
+    <None Include="Shaders\Basic\TextureUnshaded.fp" />
+    <None Include="Shaders\Basic\TextureUnshaded.vp" />
+    <None Include="Shaders\Debug\DebugDispNormals.fp" />
+    <None Include="Shaders\Debug\DebugDispNormals.vp" />
+    <None Include="Shaders\Debug\DebugWireframe.fp" />
+    <None Include="Shaders\Debug\DebugWireframe.vp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="Libraries\Assimp\assimp.lib">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </Library>
+    <Library Include="Libraries\Assimp\assimpD.lib">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </Library>
+    <Library Include="Libraries\Assimp\zlib.lib">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </Library>
+    <Library Include="Libraries\Assimp\zlibd.lib">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </Library>
+    <Library Include="Libraries\Bullet_2_81\lib\Release\BulletCollision.lib">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">false</ExcludedFromBuild>
+    </Library>
+    <Library Include="Libraries\Bullet_2_81\lib\Release\BulletDynamics.lib">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">false</ExcludedFromBuild>
+    </Library>
+    <Library Include="Libraries\Bullet_2_81\lib\Release\BulletMultiThreaded.lib">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">false</ExcludedFromBuild>
+    </Library>
+    <Library Include="Libraries\Bullet_2_81\lib\Release\BulletSoftBody.lib">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">false</ExcludedFromBuild>
+    </Library>
+    <Library Include="Libraries\Bullet_2_81\lib\Release\BulletSoftBodySolvers_DX11.lib">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">false</ExcludedFromBuild>
+    </Library>
+    <Library Include="Libraries\Bullet_2_81\lib\Release\BulletSoftBodySolvers_OpenCL_Mini.lib">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">false</ExcludedFromBuild>
+    </Library>
+    <Library Include="Libraries\Bullet_2_81\lib\Debug\BulletCollision_Debug.lib">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">true</ExcludedFromBuild>
+    </Library>
+    <Library Include="Libraries\Bullet_2_81\lib\Debug\BulletDynamics_Debug.lib">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">true</ExcludedFromBuild>
+    </Library>
+    <Library Include="Libraries\Bullet_2_81\lib\Debug\BulletMultiThreaded_Debug.lib">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">true</ExcludedFromBuild>
+    </Library>
+    <Library Include="Libraries\Bullet_2_81\lib\Debug\BulletSoftBodySolvers_DX11_Debug.lib">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">true</ExcludedFromBuild>
+    </Library>
+    <Library Include="Libraries\Bullet_2_81\lib\Debug\BulletSoftBodySolvers_OpenCL_Mini_Debug.lib">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">true</ExcludedFromBuild>
+    </Library>
+    <Library Include="Libraries\Bullet_2_81\lib\Debug\BulletSoftBody_Debug.lib">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">true</ExcludedFromBuild>
+    </Library>
+    <Library Include="Libraries\Bullet_2_81\lib\Debug\LinearMath_Debug.lib">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">true</ExcludedFromBuild>
+    </Library>
+    <Library Include="Libraries\Bullet_2_81\lib\Debug\MiniCL_Debug.lib">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">true</ExcludedFromBuild>
+    </Library>
+    <Library Include="Libraries\Bullet_2_81\lib\Release\LinearMath.lib">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">false</ExcludedFromBuild>
+    </Library>
+    <Library Include="Libraries\Bullet_2_81\lib\Release\MiniCL.lib">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">false</ExcludedFromBuild>
+    </Library>
+    <Library Include="Libraries\FreeType_2_5_0_1\freetype250MT.lib" />
+    <Library Include="Libraries\FreeType_2_5_0_1\freetype250ST.lib" />
+    <Library Include="Libraries\PNG++\libpng16.lib" />
+    <Library Include="Libraries\Zlib\zlibstatic.lib">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">false</ExcludedFromBuild>
+    </Library>
+    <Library Include="Libraries\Zlib\zlibstaticd.lib">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='ReleaseWithDebugData|x64'">true</ExcludedFromBuild>
+    </Library>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

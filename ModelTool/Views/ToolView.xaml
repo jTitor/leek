@@ -1,0 +1,317 @@
+﻿<UserControl x:Class="ModelTool.Views.ToolView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:lControls="clr-namespace:ModelTool.Controls"
+			 xmlns:UI="clr-namespace:ModelTool.UI"
+			 xmlns:ValueConverters="clr-namespace:ModelTool.UI.ValueConverters"
+			 xmlns:Behaviors="clr-namespace:ModelTool.UI.Behaviors"
+			 xmlns:Model="clr-namespace:ModelTool.Model"
+			 xmlns:Log="clr-namespace:ModelTool.Log"
+			 xmlns:System="clr-namespace:System;assembly=mscorlib"
+			 xmlns:WinForms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800">
+	<UserControl.Resources>
+		<ObjectDataProvider ObjectType="{x:Type Model:MeshInfo}"
+							MethodName="GetMesh" x:Key="GetMesh">
+			<ObjectDataProvider.MethodParameters>
+				<System:Int32>0</System:Int32>
+			</ObjectDataProvider.MethodParameters>
+		</ObjectDataProvider>
+		<ValueConverters:VerbosityToBrushConverter x:Key="VerbosityToBrushConverter"/>
+		<ValueConverters:DetailedFSElemToBrushConverter x:Key="DetailedFSElemToBrushConverter"/>
+		<ValueConverters:EditorFileStateToStringConverter x:Key="EditorFileStateToStringConverter"/>
+		<DataTemplate x:Key="VerbosityHighlightTemplate">
+			<TextBlock Foreground="{Binding Path=Verbosity, 
+									Converter={StaticResource VerbosityToBrushConverter}}"
+					   Text="{Binding Text}"/>
+		</DataTemplate>
+		<!-- When attached to a control's style, causes the control to flash -->
+		<Style x:Key="TabFlasher" TargetType="TabItem">
+			<Setter Property="TabItem.HeaderTemplate">
+				<Setter.Value>
+					<DataTemplate>
+						<!-- actual header -->
+						<TextBlock x:Name="header" Foreground ="Black" Text="{Binding}"/>
+						<!-- makes the tab actually flash -->
+						<DataTemplate.Triggers>
+							<Trigger Property="Visibility" Value="Visible">
+								<Trigger.EnterActions>
+									<!-- flash is a autolooping, autoreversing animation -->
+									<BeginStoryboard>
+										<Storyboard Storyboard.TargetName="header" AutoReverse="True" RepeatBehavior="Forever"
+													Storyboard.TargetProperty="Foreground.Color">
+											<!-- each pulse should take about a second -->
+											<ColorAnimation To="Transparent" AutoReverse="True" Duration="0:0:0.5"/>
+										</Storyboard>
+									</BeginStoryboard>
+								</Trigger.EnterActions>
+							</Trigger>
+						</DataTemplate.Triggers>
+					</DataTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</UserControl.Resources>
+	<DockPanel LastChildFill="True">
+		<StatusBar DockPanel.Dock="Bottom">
+			<StatusBar.ItemsPanel>
+				<ItemsPanelTemplate>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*"/>
+						</Grid.RowDefinitions>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto"/>
+							<ColumnDefinition Width="Auto"/>
+						</Grid.ColumnDefinitions>
+					</Grid>
+				</ItemsPanelTemplate>
+			</StatusBar.ItemsPanel>
+			<StatusBarItem Grid.Column="1">
+				<TextBlock>
+					<TextBlock.Text>
+						<MultiBinding Converter="{StaticResource EditorFileStateToStringConverter}">
+							<Binding Path="FileState" Mode="OneWay"
+									UpdateSourceTrigger="PropertyChanged"/>
+							<Binding Path="SelectedItem.Name" Mode="OneWay"
+									UpdateSourceTrigger="PropertyChanged"/>
+						</MultiBinding>
+					</TextBlock.Text>
+				</TextBlock>
+			</StatusBarItem>
+			<StatusBarItem Grid.Column="0">
+				<ProgressBar Name="FileProgressBar" Value="{Binding FileProgress, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Width="80" Height="18"/>
+			</StatusBarItem>
+		</StatusBar>
+		<TabControl TabStripPlacement ="Top" Margin="0" DockPanel.Dock="Top">
+			<TabItem Name="EditorTab" Header="Editor">
+					<DockPanel LastChildFill="True" Margin="{Binding GeneralPadding}"
+							   DockPanel.Dock="Top">
+						<!-- address bar -->
+						<DockPanel DockPanel.Dock="Top" Height="Auto" LastChildFill="True" Margin="{Binding GeneralPadding}"
+								   IsEnabled="{Binding ExplorerActive, UpdateSourceTrigger=PropertyChanged}">
+								<TextBlock Text="Address" Margin="{Binding SubPadding}" DockPanel.Dock="Left"
+										   VerticalAlignment="Center" HorizontalAlignment="Center"/>
+								<Button Content="Up" Margin="{Binding SubPadding}" DockPanel.Dock="Left"
+							Command="{Binding CmdUp}"/>
+							<Button Content="Go" Margin="{Binding SubPadding}" DockPanel.Dock="Right"
+							Command="{Binding CmdGo}"/>
+							<TextBox Name="AddressBar" 
+							TextWrapping="NoWrap" Text="{Binding AddressBarText, UpdateSourceTrigger=PropertyChanged}" 
+							VerticalAlignment="Center" HorizontalAlignment="Stretch">
+								<TextBox.InputBindings>
+									<KeyBinding Command="{Binding CmdGo}" Key="Enter" />
+								</TextBox.InputBindings>
+							</TextBox>
+						</DockPanel>
+						<!-- editor elements -->
+						<GroupBox Header="Model" DockPanel.Dock="Right"
+								  IsEnabled="{Binding ExplorerActive, UpdateSourceTrigger=PropertyChanged}">
+							<DockPanel LastChildFill="True">
+							<lControls:TwoColumnGrid DockPanel.Dock="Top" Height="Auto" 
+													 Margin="{Binding SubPadding}"
+													 RowSpacing="{Binding SubPadding}">
+						
+									<Label Content="Model Version:" DockPanel.Dock="Top"/>
+									<Label Content="{Binding LoadedModel.FileVersion, UpdateSourceTrigger=PropertyChanged}"/>
+
+									<Label Content="Num. Meshes:" DockPanel.Dock="Top"/>
+									<Label Name="NumMeshesBox" Content="{Binding LoadedModel.NumMeshes, UpdateSourceTrigger=PropertyChanged}"/>
+
+									<Label Content="Total Vertices:" DockPanel.Dock="Top"/>
+									<Label Name="TotalVertsBox" Content="{Binding LoadedModel.TotalVerts, UpdateSourceTrigger=PropertyChanged}"/>
+						
+									<Label Content="UV Channels:" DockPanel.Dock="Top"/>
+									<Label Name="UVChannelBox" Content="{Binding LoadedModel.NumUVChannels, UpdateSourceTrigger=PropertyChanged}"/>
+						
+									<Label Content="Center" DockPanel.Dock="Top"/>
+									<lControls:Vector3Box x:Name="BoundsCenterBox" Values="{Binding LoadedModel.BoundsCenter, UpdateSourceTrigger=PropertyChanged}"/>
+						
+									<Label Content="AABB Bounds" DockPanel.Dock="Top"/>
+									<lControls:Vector3Box x:Name="AABBBoundsBox" Values="{Binding LoadedModel.AABBBounds, UpdateSourceTrigger=PropertyChanged}"/>
+						
+									<Label Content="Bounding Radius" DockPanel.Dock="Top"/>
+									<TextBox Name="BoundingRadiusBox" TextWrapping="NoWrap" Text="{Binding LoadedModel.BoundsRadius, UpdateSourceTrigger=PropertyChanged}"/>
+							</lControls:TwoColumnGrid>
+								<Rectangle DockPanel.Dock="Top" Height="{Binding SplitterPadding}"/>
+							<lControls:TwoColumnGrid Margin="{Binding GeneralPadding}" 
+													 DockPanel.Dock="Bottom"
+													 RowSpacing="{Binding SubPadding}">
+									<Label Content="Mesh:" DockPanel.Dock="Top"/>
+									<ComboBox Name="MeshSelector" 
+											  ItemsSource="{Binding MeshSelectorValues,
+																	UpdateSourceTrigger=PropertyChanged}"
+											  SelectedItem="{Binding SelectedMeshIndex, 
+																	 UpdateSourceTrigger=PropertyChanged,
+																	 Mode=TwoWay}"/>
+						
+									<Label Content="Diffuse Color" DockPanel.Dock="Top"/>
+									<lControls:ColorBox x:Name="DiffuseColorBox" 
+														Values="{Binding CurrentMesh.Diffuse, UpdateSourceTrigger=PropertyChanged}"/>
+						
+									<Label Content="Specular Color" DockPanel.Dock="Top"/>
+									<lControls:ColorBox x:Name="SpecularColorBox"
+														Values="{Binding CurrentMesh.Specular, UpdateSourceTrigger=PropertyChanged}"/>
+						
+									<Label Content="Emissive Color" DockPanel.Dock="Top"/>
+									<lControls:ColorBox x:Name="EmissiveColorBox"
+														Values="{Binding CurrentMesh.Emissive, UpdateSourceTrigger=PropertyChanged}"/>
+						
+									<Label Content="Diffuse Texture" DockPanel.Dock="Top"/>
+									<TextBox Name="DiffuseTexGUIDBox" TextWrapping="NoWrap" Text="{Binding CurrentMesh.DiffuseTexGUID, UpdateSourceTrigger=PropertyChanged}"
+											 HorizontalAlignment="Stretch" Width="Auto"/>
+						
+									<Label Content="Specular Texture" DockPanel.Dock="Top"/>
+									<TextBox Name="SpecularTexGUIDBox" TextWrapping="NoWrap" Text="{Binding CurrentMesh.SpecularTexGUID, UpdateSourceTrigger=PropertyChanged}"
+											 HorizontalAlignment="Stretch" Width="Auto"/>
+						
+									<Label Content="Normal Map" DockPanel.Dock="Top"/>
+									<TextBox Name="NormalMapGUIDBox" TextWrapping="NoWrap" Text="{Binding CurrentMesh.NormalTexGUID, UpdateSourceTrigger=PropertyChanged}"
+											 HorizontalAlignment="Stretch" Width="Auto"/>
+						
+									<Label Content="Glow Map" DockPanel.Dock="Top"/>
+									<TextBox Name="GlowMapGUIDBox" TextWrapping="NoWrap" Text="{Binding CurrentMesh.GlowTexGUID, UpdateSourceTrigger=PropertyChanged}"
+											 HorizontalAlignment="Stretch" Width="Auto"/>
+							</lControls:TwoColumnGrid>
+							</DockPanel>
+						</GroupBox>
+						<!-- directory viewer -->
+						<DockPanel DockPanel.Dock="Left" Height="Auto" LastChildFill="True">
+							<GroupBox Header="Directory Contents" DockPanel.Dock="Top"
+									  IsEnabled="{Binding ExplorerActive, UpdateSourceTrigger=PropertyChanged}">
+								<DockPanel LastChildFill="True" Margin="{Binding SubPadding}">
+									<!-- File operation buttons. -->
+								<DockPanel DockPanel.Dock="Top" LastChildFill="False">
+									<StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
+										<Button Content="Open" Margin="{Binding SubPadding}"
+												Command="{Binding CmdOpenFSElement}"/>
+										<Button Content="Save" Margin="{Binding SubPadding}"
+												Command="{Binding CmdWriteModel}"/>
+										<Button Content="Convert All!" Margin="{Binding SubPadding}"
+												Command="{Binding CmdConvertAll}"/>
+									</StackPanel>
+									<StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+										<TextBlock Text="Show Only Importable: " VerticalAlignment="Center"
+												   Margin="{Binding SubPadding}"/>
+										<CheckBox Name="FilterBox" IsChecked="{Binding	ShowOnlyImportable, 
+																						UpdateSourceTrigger=PropertyChanged,
+																						Mode=TwoWay}" 
+												  HorizontalAlignment="Right" VerticalAlignment="Center"
+												  Margin="{Binding SubPadding}"/>
+									</StackPanel>
+								</DockPanel>
+								<!-- The directory viewer! -->
+									<TreeView Name="FileExplorer" DockPanel.Dock="Top" 
+											  Margin="{Binding SubPadding}"
+											  ItemsSource="{Binding DirListView, UpdateSourceTrigger=PropertyChanged}"
+                                              VirtualizingStackPanel.IsVirtualizing="True"
+                                              VirtualizingStackPanel.VirtualizationMode="Recycling">
+										<TreeView.ItemContainerStyle>
+											<Style TargetType="{x:Type TreeViewItem}">
+												<Setter Property="Behaviors:MouseDoubleClick.Command"
+							Value="{Binding DataContext.CmdOpenFSElement, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"/>
+												<Setter Property="Behaviors:MouseLeftButtonUp.Command"
+							Value="{Binding DataContext.CmdSelectFSElement, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"/>
+												<Setter Property="Behaviors:MouseLeftButtonUp.CommandParameter"
+							Value="{Binding}"/>
+												<!--
+                                                <Setter Property="IsEnabled" Value="{Binding ExplorerActive, UpdateSourceTrigger=PropertyChanged}"/>
+                                                -->
+											</Style>
+										</TreeView.ItemContainerStyle>
+										<TreeView.ItemTemplate>
+											<!-- Context is slightly different, 
+											have to specift the bindings are relative to template parent	-->
+											<HierarchicalDataTemplate DataType="FileSystemInfo">
+												<StackPanel Orientation="Horizontal" 
+															Margin="{Binding DataContext.SubPadding, RelativeSource={RelativeSource AncestorType={x:Type TreeView}}}">
+												<Image Source="{Binding IconSource}"/>
+												<TextBlock Text="{Binding Info.Name}"
+															   Background="{Binding Converter={StaticResource DetailedFSElemToBrushConverter}}"/>
+												</StackPanel>
+											</HierarchicalDataTemplate>
+										</TreeView.ItemTemplate>
+									</TreeView>
+								</DockPanel>
+							</GroupBox>
+						</DockPanel>
+					</DockPanel>
+			</TabItem>
+			<TabItem Name="LogTab" Header="Log">
+				<DockPanel LastChildFill="True" Margin="{Binding GeneralPadding}">
+					<StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="{Binding SubPadding}">
+						<Button Content="Clear Log" Margin="{Binding SubPadding}"
+								Command="{Binding DataContext.CmdClearLog, 
+												  RelativeSource={RelativeSource Mode=FindAncestor, 
+																				 AncestorType={x:Type UserControl}}}"/>
+						<TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
+								   Text="Minimum Level: " Margin="{Binding SubPadding}"/>
+						<ComboBox Name="LogFilterBox" 
+								  ItemsSource="{Binding Source={x:Static Log:LogElement.LogVerbosityValues},
+																		 Mode=OneTime}"
+								  SelectedItem="{Binding VerbosityLevel, Mode=OneWayToSource}"/>
+					</StackPanel>
+					<ListView Name="LogList" Margin="{Binding SubPadding}"
+							  ItemsSource="{Binding LogElements, UpdateSourceTrigger=PropertyChanged}"
+                              VirtualizingStackPanel.IsVirtualizing="True">
+						<ListView.Style>
+							<Style TargetType="ListView">
+								<Setter Property="Background"
+										Value="{Binding Source={x:Static UI:ThemeBrushes.LogBg}}"/>
+							</Style>
+						</ListView.Style>
+						<ListView.ItemContainerStyle>
+							<Style TargetType="{x:Type ListViewItem}">
+								<Setter Property="Background" Value="Transparent"/>
+								<Setter Property="FontFamily" Value="Courier New"/>
+								<Setter Property="Template">
+									<Setter.Value>
+										<ControlTemplate TargetType="{x:Type ListViewItem}">
+											<Border BorderBrush="Transparent"
+													BorderThickness="0"
+													Background="{TemplateBinding Background}">
+												<GridViewRowPresenter HorizontalAlignment="Stretch"
+																	  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+																	  Width="Auto" Margin="0"
+																	  Content="{TemplateBinding Content}"/>
+											</Border>
+										</ControlTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</ListView.ItemContainerStyle>
+						<ListView.View>
+							<GridView>
+								<GridView.ColumnHeaderContainerStyle>
+									<Style TargetType="GridViewColumnHeader">
+										<Setter Property="Visibility"
+												Value="Collapsed"/>
+										<Setter Property="Background"
+										Value="{Binding Source={x:Static UI:ThemeBrushes.LogBg}}"/>
+										<Setter Property="Foreground"
+										Value="{Binding Source={x:Static UI:ThemeBrushes.FontLight}}"/>
+										<Setter Property="FontFamily"
+												Value="Courier New"/>
+									</Style>
+								</GridView.ColumnHeaderContainerStyle>
+								<GridViewColumn Width="{Binding ActualWidth, ElementName=LogList}" Header="Message" CellTemplate="{StaticResource VerbosityHighlightTemplate}"/>
+							</GridView>
+						</ListView.View>
+					</ListView>
+				</DockPanel>
+			</TabItem>
+			<TabItem Name="PreviewTab" Header="Preview">
+				<DockPanel Name="PreviewDock" LastChildFill="True">
+					<WindowsFormsHost Name="PreviewCanvas" Margin="{Binding SubPadding}"
+									  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+									  DockPanel.Dock="Top">
+						<WinForms:Panel Name="PreviewPanel" Dock="Fill"/>
+					</WindowsFormsHost>
+				</DockPanel>
+			</TabItem>
+		</TabControl>
+	</DockPanel>
+</UserControl>

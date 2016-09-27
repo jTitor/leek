@@ -1,0 +1,367 @@
+Chorocojo: 
+
+"Focus Energy is supposed to raise your critical hit rate 25%. Except that they did it wrong and instead of multiplying it divides and makes your crit rate DROP."
+
+SweeneyTodd: 
+
+"This is fascinating. I love that almost all of these glitches are the same thing -- a bad pointer -- which admittedly was the most common error you'd see at the time. 
+
+In C and assembler, if you have a variable, it's not really a variable, it's the address of the memory that holds that variable. Modern programming languages basically won't ever let you manipulate that stuff directly, but it was common practice back then. 
+
+This thread shows one reason bad pointer errors could be so hard to track down -- the same error could have a huge variety of results depending on what else is in memory at the time. They're notoriously difficult to reproduce, and sometimes you'd see like, five or six (or more) bugs get closed on a project when one particular misuse of pointers was fixed."
+
+slowbeef: 
+
+*replying to SweeneyTodd* "Huh?
+
+In C, you can have variables that store the straight up data or pointers.
+
+int i = 5;
+int *j = &i;
+
+In ASM, a short lifecycle variable might not actually ever make it into memory and just stay in the registers, so there's no pointer at all.
+
+slti r2, r3, 0x6000 (set register 2 to true/false (1/0) if the value in r3 is less than 0x6000)
+beq r0, r2, 0x0009 (jump 8 lines ahead if register 2 was false)
+
+In this case, the "variable" never got to memory, because it was stored in the register and forgotten after use. 
+
+edit2: (So in the case of r2, the boolean used for the branch is never in memory and has no address. This can happen in any language.)
+
+
+edit: Java still lets you do pass-by-reference, but you're right that you can't actually change the memory address."
+
+SweeneyTodd: 
+
+"My point was mostly that "safe" methods are sort of relatively new. I have an old Microsoft Press book about Win3.1 coding, for instance, and the damn thing is pretty much 90% "How to use pointers without fucking stuff up"."
+
+Starkclamp:
+
+"Oh, hey, I've programmed gameboy before. I can field this one. Although it's actually a general programming thing, really.
+
+There's a defined start of the "pokemon" data, and each pokemon's data is in there, in a very organized fashion, one after another. As it needs to be accessed, the game looks (pokemon number) * (size of one pokemon's data) past the start of the pokemon data, and it finds the information it needs.
+
+Trouble is, the game is on an 8-bit, so the highest number is 255, not 151. And when you're loading from something that wasn't supposed to be used to load this data, there's no guarantee it'll be in the range 1 to 151. So often, it's just... Not. As is the case here. But data for things that aren't pokemon is what's after the pokemon data. Not looking at the code, I couldn't tell you what that data is, but it's not pokemon data. So the game looks for pokemon data well past where it actually exists, and as a result gets data that is for all intents and purposes completely random. Predictable, but useless data.
+
+So they're not "placeholders," exactly, they're just... There. It's like if you had a book that was so many pages long, and you tried to see what was in the book a few pages more than that in. That's part of the hardcover, which isn't paper and doesn't have text. But if you could somehow look at that part... Say, you cut open the cover... You'd see all the not-text that was there. And then Pokemon Blue takes a look at it, says "that looks about right," and declares that not-text to in fact be text and reads it, declares it a pokemon, and shoves it on to your screen. And then your game boy (/ emulator) responds with a "What the hell did you just put in me" and spazzes out."
+
+Doug Dinsdale:
+
+"I used to shoot down Pikablu rumors as soon as I saw them because there was no way in hell that name would've been approved by Game Freak.
+But the fans, even knowing my identity, often refused to listen.
+
+It was as if there was some sort of collective mental seizure affecting the fans."
+
+Dinictus: *To DD*
+
+"That reminds me, how much of a say did you ever have in naming any of the Pokémon as one, if not the lead translators on the first games, anyway? Always been curious about that kind of creative input."
+
+DD:
+
+"Didn't get to do the all caps stuff (meaning move names, poke names, places, NPCs, etc. etc.) until around Gen 3 because my NOA handler was convinced he had a better handle on things. Which is why there were howlers like Slowbro being a "Hermit Crab Pokemon" and Marill becoming a "Polkadot Pokemon." Oh, and fucking RAGECANDYBAR.
+It used to drive me bananas that they'd pay me to translate, and then refuse to reason with me over issues like that.
+By around Gen 3, I think my old handler was replaced, and I got a lot more input into the all caps stuff. That's why I was able to preserve the pun pair "Old Chateau" and "Old Gateau" in DPPT when people were saying stupid shit like calling the "Gateau" "Bean Paste Cake," which would've been the correct translation, but would've killed the original joke dead."
+
+"It was originally Ikari Manju, so "Rage Dumpling" would be the correct translation, but that's too long, so Rage Bun. 
+Just nothing so grammatically ugly as what they'd called it in the end."
+
+"Slowbro was a "yadokari" Pokemon. 
+Yadokari does directly translate to "hermit crab", but broken down into its kanji characters, one gets, "inn renter". Basically, he's "borrowing" a home. 
+I would've pushed for "squatter" (which also is a pun for "otter", which I assumed it to be, sort of). 
+
+Marill was a "mizutama" Pokemon.
+If the Japanese word for "pattern" was added after it, then, yes, it would have had to been "polkadot". But I again broke it down to the kanji words "water" and "ball". I figured that "ball" would be the correct interpretation because of its rotund figure, so I would've gone with "aqua-ball" or "aqua-orb" pokemon. Yeah, no great shakes, but truer to the original spirit of the JP name."
+
+
+loquacius: *In response to several stories about Nintendium alloy*
+
+"I remember one time like ten years ago Nintendo Power put out a call for people's stories like this. The two that I can remember are:
+
+(1) Somebody's Game Boy falling out a window or something in autumn completely unnoticed, remaining outside through the cold, snowy winter, and being found again completely functional in the spring
+
+(2) Somebody's Game Boy falling out of their backpack onto the driveway before a drive to their grandmother's house, getting run over, getting stuck to the tire and run over repeatedly all the way to grandma's, being found again upon arrival, and suffering a loss of sound but otherwise remaining completely functional."
+
+
+Cleretic:
+
+[timg]http://img.waffleimages.com/cd69d1d812a2b115580d874f43493c18a623fefc/Day6008edit.jpg[/timg]
+
+Doug Dinsdale: 
+
+"But the shorts line is a direct translation." [b][It's such an (in)famous line, I figured that confirmation that, yes, that IS what the kid's really saying, is worth preserving.][/b]
+
+Quickman:
+
+":eng101: Actually, you have zero Pokemon. There's a value in RAM which stores how many Pokemon you have in your party for things like Pokemon Centres; when adding Pokemon to the machine it executes a "subtract one, compare with 0, if not equal do it again" loop. When that value is zero the first subtraction circles over to 255, so it ends up drawing 256 Pokeballs (most of which end up being glitchy crap at the top of the screen due to overrunning the end of an array). It's the same bug that causes the split screen in Pac-Man.
+
+Bill's PC works differently, so you can actually fiddle with arbitrary bits of system memory (which is how that incomprehensible TAS of Pocket Monsters Red/Green does its thing)."
+
+
+NRVNQSR:
+
+"Memory protection is a system that prevents programs from reading or writing bits of memory that they shouldn't, either because they're not allowed to or because the memory doesn't even exist. If a program tries, it will crash. When a modern game crashes, 95% of the time it's memory protection that strikes the killing blow: As the game gets more and more confused, it's more and more likely that it will ask a question it shouldn't and the system will smack it down. It might be called an "access violation" or a "segmentation fault" or a dozen other names, but they're all the same thing.
+
+All modern PCs and almost all modern consoles have some form of memory protection. But as you go further back in time, especially on smaller portable consoles, it gets rarer and more limited; memory protection isn't free, and processing power was at a premium.
+
+So when a gameboy game asks to read a bit of memory that's slightly wrong? Sure, go ahead. When, based on that, it tries to write to a chunk of memory that's miles from where it should be, smack in the middle of a Pidgey's sprite data? No problem. It can just keep going round in circles, getting more and more confused. It's all crazy, but without a memory manager keeping an eye on things none of it is actually going to make the game crash. As long as the game can find its way back out to some code that works again, it can carry on as if nothing had happened.
+
+When a game on an old system like this actually crashes, it's usually either because the hardware has been asked to do something completely impossible (dividing by zero is a classic, though some systems will try anyway), because the program has gone into an infinite loop, or because the programmer has specifically told it to die ("if the player encounters a Pokemon that shouldn't exist, then crash").
+
+Many games use that last one a lot; better to have the game crash than let it continue in a messed up form, especially if there's a risk of it messing up their saves. Obviously Pokemon isn't one of these games."
+
+Ensign Expendable:
+
+"I might as well serve an educated guess as to why you had a million Pokemon. 
+
+Computers store large amounts of very similar data in structures called arrays. When an array is initialized, it's given a very specific length, terminated with a null character. As an example, the string "hello" is stored in memory as {'h','e','l','l','o','\n'}, where '\n' is a NULL value that tells the computer that the array is over and that it should stop doing whatever it's doing to the array, since after that is completely irrelevant data. Imagine that instead of character values, the array held Pokemon structures. One of your horrible glitches overwrote that null value, so the program doesn't know when to stop and considers everything after that point in memory a Pokemon. Of course, since none of that data is actually a Pokemon, the game tries its best to force that data into a Pokemon. Some of those, like h POKe might actually be close enough to the real thing that they can be called on in battle."
+
+Toad King:
+
+"The GameBoy boot sequence actually does a little sanity check against the ROM header in the form of the GameBoy Logo. If it isn't pixel-perfect from the copy stored in the GameBoy boot loader, it locks up after the little "ping" noise is played. This is usually to make sure there's a game inserted, it's inserted all the way, and the cartridge doesn't need its weekly blowing-into-it treatment. If the ROM data itself got corrupted, the logo can be corrupted too, and would never be exactly the same as the one on the GameBoy boot ROM.
+
+(More information about the wonderful world of GameBoy Boot ROMs can be found [url=http://gbdev.gg8.se/wiki/articles/Gameboy_Bootstrap_ROM]here[/url])"
+
+SporkOfTruth: *In regards to the insane "reading code by looking at the CPU with a microscope" story*
+
+What they did was etch off various layers from the CPU die and stain certain sections to identify transistor level features. [url=http://web.archive.org/web/20060507053755/http://forums.cherryroms.com/viewtopic.php?t=3848&start=75]Here's an archived version of the original topic.[/url] [url=https://netfiles.uiuc.edu/mantey/www/DMG/]And here's a link to the image directory.[/url] The links to images on the archive.org copy don't work, so you need to get to the directory to see them. 
+Examples:
+Overview of the entire CPU die with comments.
+
+[URL=http://img.waffleimages.com/93ae4f45dac840eae070b011a252e2e92875c7a1/DMG_overview_commented.jpg#via=salr][timg]http://img.waffleimages.com/93ae4f45dac840eae070b011a252e2e92875c7a1/t/DMG_overview_commented.jpg[/timg][/URL]
+
+A close up of the ROM location. You can see the individual 1's and 0's (light and dark spots) written into the silicon.
+[timg]http://img.waffleimages.com/e18bfc11026ec954960d382d243c2574f71945c0/DMG_ROM_close.jpg#via=salr[/timg]
+
+pumpinglemma:
+
+"The boot loader would have been in read only memory, probably in a chip in the Game Boy itself going by the fact that a mangled version of the Nintendo logo appears when you turn it on without a cartridge inside. Read only memory is designed to only be written to once - it's very different from "normal" memory. I think in the old days the most common design actually involved somehow physically damaging the chip somehow to write data, so it's possible that a one would look different from a zero."
+
+Ensign Expendable:
+
+"Yes, non-eraseable PROM does actually have either the one or zero bits burned out, I forget which ones. The obviously changed with EPROM and EEPROM, since you had to be able to erase data from those."
+
+Makrond:
+
+"EPROM is wiped by ultraviolet light, EEPROM can be erased by running an electrical current through it. PROM was apparently programmed by running electrical currents through it to blow out fuses, which made those bits read as a 0 instead of a 1.
+
+Also interesting is that 'battery saves' are stored in volatile RAM, but since there's a constant low current running through the RAM from the battery, it doesn't get wiped when the Gameboy gets turned off."
+
+AfroGunsou:
+
+"I'm gonna cross-post this from the Pokemon Megathread because I believe it's quite topical: It's Pokemon and it's utterly horrifying.
+
+[url=http://asame12.web.infoseek.co.jp/2pokehyaku.html]3rd and 4th gen Pokemon drawn in classic Japanese art style.[/url]
+
+[url=http://blog.livedoor.jp/agraphlog-asamegraph/temp/pokehyaku.html]And I'll throw in 1st and 2nd gen ABSOLUTELY FREE![/url]"
+
+printf: *On the issue of Metroixer's [i]emulator[/i] crashing*
+
+"I'm not 100% sure on this but the reason it crashes with that specific error is because of two things. One is a buffer overflow that causes all that shit to occur in the video-mapped area of RAM (the parts of RAM that directly correspond to pixels), and the second is that executable data is also stored in RAM. 
+
+The CPU (at least on old x86 systems, like desktops) always keeps track of what's executing in the instruction pointer, which stores the location to what's being executed. Therefore if you wildly scribble garbage data over ram, you might overwrite what the instruction pointer is pointing at, thus creating an invalid instruction.
+
+When the emulator attempts to decipher this instruction, it doesn't know what to do, so it gives up. A physical CPU might toss an exception and hopefully give up.
+
+The reason there's graphical corruption is basically a buffer overflow overwriting areas in RAM that are video-mapped, which means if you write at location 0x0010, you'll write a portion of the screen. There's other input-output mapped areas, like the speaker I/O, which may explain the audio corruption video (but that's probably a loop gone awry).
+
+e: This is only really on embedded hardware like gameboys where cost was an issue so that had to cheap out by not having an MMU or anything.
+
+e2: see here http://meatfighter.com/gameboy/GBCPUman.pdf Also replace "RAM" in my post with "Memory Map" if you want to be more correct."
+
+
+Quickman:
+
+":eng101:Pokemon graphics data in the original Pokemon games are stored procedurally! It stores the instructions to draw the graphics rather than the graphics themselves. Gold and Silver switched to a boring compression format.
+
+As for the emulator crashing: that shouldn't happen. What it should do is handle the invalid opcode the same way the system would - by invoking the exception handling code in the actual game. If an opcode can crash the emulator, that indicates sloppy or buggy coding somewhere - it's equivalent to saying the system explodes.
+
+Also, people, stop trying to explain those images as real Pokemon sprites ("it's a Poliwhirl/Poliwrath mixed with a Graveler's upper arms" etc). There's a degree of coherence in actual Pokemon sprites at the 8 pixel by 8 pixel tile level - check out the misaligned Ivysaur from before. These are just straight-up glitch."
+
+
+slowbeef: *Responding to Quickman*
+
+"To be fair, exception handling's relatively modern in computer science - I don't know that the Game Boy would actually have any. Hell if the game was written in C/C++, I don't actually think there's any system of exception handling at all. Error recovery sure, but tried and true exception handling might be asking a little much - especially with something like illegal opcode. I mean, there's not a lot of cases where you'd want to recover from that because it means something went so wrong that system integrity is most likely completely shot. I think the real deal Game Boy would probably just halt execution and reset."
+
+printf: *Responding to slowbeef*
+
+"He's talking about hardware exceptions that on desktops raise signals like SIGFPE and SIGSEGV. A gameboy game probably doesn't have the space to handle any of these, so the processors gives up."
+
+
+thelightguy: *After much debate on how the hell sprites get stored*
+
+"Since the gameboy has no graphics acceleration of any kind, that's actually significantly slower and more complicated than just storing the graphics as bitmaps, since you first have to implement all those vector routines. I still stand by my guess that they're just obfuscated bitmaps, because at least that makes sense from a copy protection point of view."
+
+Chorocojo:
+
+"Shininess/gender used to be determined by IVs, the variable stats each individual monster has, in Gen2. If I remember correctly, shinies had terrible stats. (Oddly Females were also generally weaker too. Go figure.) So yes, you were capturing a Ditto that copied the gyarados's (Shininess granting) IVs. Gen1 was weird like this.
+
+Starting in Gen3 they overhauled this system and made it so not only IVs could be higher, but they changed gender/shininess/etc to a different determining factor. This also made shiny Pokémon much, much rarer."
+
+Starkclamp:
+
+"Shiny stats were actually above average, although still not great; 10/15 in defense/speed/special, 2, 3, 6, 7, 10, 11, 14 or 15 in attack, for 1 in 8192 overall (given that 0 is a valid number for this), or 1 in 2^13. And the reason females were weaker is they way they determined gender was basically to denote, for whatever the gender chance is, you get female if your attack stat is less than the chance times 16 (so for an average pokemon with 50% chance of being male or female, 0-7 ATK = female, 8-15 ATK = male.) This is because sexism is cool.
+
+The way shinies are calculated now actually doesn't change their rarity at all, though. It's still 1 in 8192. It's based on the trainer's ID and secret ID, as well as the personality value (a catch-all giant block of data representing everything the pokemon is, pretty much) of the pokemon. The way it works is, the trainer's two IDs are XORed together, the first byteword of the personality value and the second byteword of the personality value are XORed together, and then those two values are XORed together; if the result is less than 8, it's shiny. (XOR, or exclusive or, is a bitwise operation meaning "one but not both." That is, for each bit in two items, 1 or 0, if the corresponding bits are 1 and 0 or 0 and 1, but not 0 and 0 or 1 and 1, that bit in the resulting item will be 1, else it will be 0.) 8 in 65536 is of course equal to 1 in 8192, so yeah."
+
+
+DarckRedd:
+
+http://www.tindeck.com/listen/jwft [This is Female Symbol's cry, in downloadable form.]
+
+Broken Loose:
+
+"When you used an attack in Gen 1, this is the process the game goes through, in the order the game goes through it.
+
+Sleep check
+Freeze check
+Hyper Beam check
+Attack is executed
+Disable check
+Confusion check
+Paralysis check
+Attack succeeded in being used
+Deduct PP
+Did the attack miss?
+Damage calculation
+Perform effect of attack
+Substitute
+Critical hit/type effectiveness message
+Check if opponent faints
+Rage check
+End of turn
+HP loss due to poison/burn
+HP loss due to Leech Seed
+Flinch check (for opponent if attacker struck first)
+
+Amongst the things that have changed since then were accuracy rates. For instance, Thunderbolt had 95 BP, 15 PP, and 255 Accuracy. Thunder had 120 BP, 10 PP, and 178 Accuracy. Accuracy was a X/256 chance of hitting, performed during the "Did the attack miss" step in turn calculations.
+
+Swift, although having 255 Accuracy, completely skips that calculation altogether. If it didn't, it would be impossible for Swift to hit Flying/Underground opponents because Flying/Underground status causes a "multiply by 0" to occur at the accuracy calculation step.
+
+Oh, and something else fucked up: Bide did the same thing. That's right, Bide skipped the accuracy check and always hit without fail.
+
+Technically, Transform counts, but it's not a damaging move.
+
+Any accounts to the contrary are all products of a deranged mind."
+
+thelightguy: *On why the hell the game doesn't explode when fed such insane glitch data*
+
+"The complete and utter lack of sanity checking is exactly why it doesn't crash.
+
+For example:
+
+The glitched encounter table says you have a chance of encountering pokemon #202 at level 122
+You trigger an encounter
+The game adds 202*(record length) to the memory address that points to the first pokemon record in the index
+It reads the data (not code) there, which are all definitely fixed length fields - n bytes for the name of the pokemon, w bytes for the typing and whatnot, x bytes for the sprite, y bytes for the moveset, and z bytes for the cry.
+Then it takes that moveset, and iterates through it, copying skills to a 4-deep fifo buffer until it reaches the level of the pokemon encountered. It then looks up the skills in another similarly organized index, which tells it the name, accuracy, type, power, animation, and max pp of the skill.
+
+At no point in there is it executing glitched code, it's just buffer overflowing like a mofo. The z80 processor has no protected mode at all, it gives no fuck if you make an out-of-bounds read or write. The main place problems arise is when the animation pointer for a particular glitch move points to code that doesn't actually animate, but does something else instead. Hence why the superglitch move, when used, wrecks saves.
+
+Disclaimer: I haven't actually pored over Pokemon Blue in NO$GMB's debugger, so it's likely I've got some implementation details wrong, but this seems like a proper blend of old-school coding practices and pure WTFness to illustrate the point."
+
+Mindbleach:
+
+"I'm guessing there's a lot of indirection here. Encountering pokemon #37 probably means checking entry 37 on an array of 16-bit addresses, then retrieving the data from that address. That'd allow variable-length fields and remove the need for one monolithic block of data. Of course the name thing might just be an internal string limit longer than the artificial name length limit. That would mean no message would roll on indefinitely in search of an EOF, but anywhere a player or pokemon name exceeded 16-ish characters would look glitchy due to poor handling.
+
+Moves aren't redefined inside each pokemon, they're just a number between one and however many moves Gen 1 has. Numbers over the total (165, apparently) are dangerous because unlike bitmaps and audio there may be some amount of executable code in moves. Either some data gets copied into RAM and executed there or the program counter gets lost jumping around through meaningless graphics junk. Crashes are likely. Obviously Game Freak used a parametric uber-move in most cases, hence glitches like the low TMs playing by the rules with junk numbers and flags.
+
+Long cries can be streamed instead of copied into memory, but I don't know how they're really handled. If the format is (start address, note count) then (0x00, 0xFF) should get you most if not all of the game's sound effects."
+
+fishmech: 
+
+"When I found out Splash is named Hop in the Japanese versions, the fact that it did nothing at all made a lot more sense."
+
+SloppyDoughnuts:
+
+"When I found that out I finally understood why Hoppip, Spoink and Buneary learn it."
+
+Malachite_Dragon:
+
+"That makes a hell of a lot more sense now. You'd think they'd have just changed it for Magikarp and left it alone for the others or translated it directly as Hop, but no, that would be sensible..."
+
+Doug Dinsdale:
+
+"I told them that "Splash" is no substitute for "Flop" (more appropriate for a fish than "Hop"), but my NOA handler wouldn't listen. I didn't have enough clout back then, so I wasn't about to lose my job over several stupid translations foisted on me by that dumbass.
+Just as I suspected, that wrong translation would come back to haunt us in subsequent games.
+That's why it's so damned important to get the translation spot on from the get-go. That said, a lot of translation is subjective and situational, so "Flop" would've been kind of problematical for the pokemon that "hop" instead of "flop.""
+
+
+fishmech:
+
+"Is that the same kind of reason why the Gen III games refer to water you can surf on as "dyed a deep blue"? I dunno why, but that phrasing always bugged me."
+
+Doug Dinsdale:
+
+"No, that's probably just a direct translation of the JP text. That sort of thing I didn't care about, it was OK in that context with zero possibility of clashing with other text.
+Besides, if I tried to change it to something literal like, "The water is deep enough to surf," some editing pinhead would've whined, "That's not what the JP text says.""
+
+Obligatory Toast:
+
+"Why is there so much bullshit when it comes to dealing with translations like that?"
+
+Doug Dinsdale:
+
+"To be fair, it's one word out of tens of thousands. 
+Shit happens when people don't think of the consequences. It would've slipped by if the game flopped and no sequels were to be made/localized or spun off into the anime and what all else. As it was, only 300,000 copies of RB were released initially, and we were jokingly told, "You guys are fired if we don't move 200,000 units.""
+
+Amorphous Blob:
+
+"So who was the genius who decided that "soft loamy soil" sounded natural?"
+
+Doug Dinsdale: *As Chorocojo would say, FAUX PAS.*
+
+"Me. I remember arguing with several people at NOA over it. I think the original JP text was something like, "It's soft, fluffy soil." And I did have a comma in there, so it was at least grammatically correct."
+
+Doug Dinsdale: *After several "Why the heck was it translated this way" posts*
+
+"But seriously, of all things to get spergy nitpicky about, those are what bothered you folks?
+
+In a similar vein, what drove me bananas was the opening battle line.
+It started as, "Youngster Joey wants to fight!"
+That was OK at the time because there were no double battles.
+
+Then, I think with GS, I decided that "fight" is not appropriate for the pokeverse, so I went to "Youngster Joey wants to battle!"
+I think we just told the debug crew to take flying fucks at rolling donuts when they pointed out that the line would be grammatically incorrect for what few double battles there were (if any), and told them, "That's the way it goes."
+
+Then, some genius in the debug crew came up with: "Youngster Joey would like to battle!" Since that would also work with double battles: "Youngster Joey and Beauty Vera would like to battle!"
+
+I HATED that. Like Team Rocket or whatever badass is going to come up to you and go, "Would you like to battle?" Like, holy hell, no.
+
+So, I think with DP, I had an epiphany: Just flip the context (I can thank Phoenix Wright for that) and change it to, "You are challenged by Youngster Joey!"
+I was quite pleased with myself because that would also work in double battles and when you're accompanied by an NPC.
+
+...That one change triggered a mess of meetings spanning a week over Christmas."
+
+Xenoveritas: *In response to the 'mess of meetings', your tax dollars at work*
+
+"Although I have also had some fun with complaints about icons. Which is great, because I'm a computer programmer and not a graphic designer. You want art that doesn't look like ass, send it to the art department.
+
+Or give it to an intern who steals art from Worms.
+
+For a website that's intended to be used by the Department of Defense."
+
+JDB1984:
+
+"Hey Doug, I'm curious about the name of Mr. Mime. What was your initial reaction when Gen 2 came and you found "Mr.Mime" can be a female?"
+
+Doug Dinsdale:
+
+"Horrified. I remember joking with the guy responsible, "If they make sequels and they give genders to Pokemon, we're going to be hooped."
+He laughed me off. 
+It's one of those unconsidered consequences that came back to bite our asses."
+
+Broken Loose:
+
+"In 2nd Gen, back when the game was a patch to a slapdash, ramshackle Dragon Warrior 1 battling system, gender was determined by the Attack IV.  If it was too low, you were female.  Because women are weak.  Or something.
+
+In 3rd Gen, each Pokémon has a "Personality Value" which is an unsigned 32-bit integer that determines all 6 IVs, Gender, which Ability it has, Nature, which letter Unown it is, the pattern of Spinda's spots, whether it will evolve into Silcoon or Cascoon, and whether or not it is Shiny.  Some of these are determined using a combination of numbers in the PV which overlap with numbers used to determine others in the list I just mentioned.  You can find out more about it [url=http://bulbapedia.bulbagarden.net/wiki/Personality_value]here[/url]."
+
+Epee Em:
+
+"Apparently, MissingNo. is so (in)famous that there've been mentions of him in sociology books.
+
+James Newman wrote [u]Playing with Video Games[/u], and it contains an interestingly in-depth study related to MissingNo.:
+
+[url=http://books.google.com/books?id=r-i8tNf1-9cC&lpg=PA119&ots=cGotgjH15i&dq=Newman%2C%20James%20(2008).%20Playing%20with%20Videogames%20missingno&pg=PA117#v=onepage&q&f=false]Here's a link to the Google Books page, it starts at page 117.[/url]
+
+It's quite an interesting read."

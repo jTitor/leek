@@ -1,0 +1,6 @@
+<Config>
+    <Setting name="InInt" type="1" value="39"/>
+    <Setting name="InFloat" type="2" value="1.618"/>
+    <Setting name="InBool" type="3" value="0"/>
+    <Setting name="InString" type="4" value="Something borrowed"/>
+</Config>

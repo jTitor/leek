@@ -1,0 +1,22 @@
+<Config>
+    <Setting>
+        <name>InInt</name>
+        <type>1</type>
+        <value>39</value>
+    </Setting>
+	<Setting>
+        <name>InFloat</name>
+        <type>2</type>
+        <value>1.618</value>
+    </Setting>
+	<Setting>
+        <name>InBool</name>
+        <type>3</type>
+        <value>1</value>
+    </Setting>
+    <Setting>
+        <name>InString</name>
+        <type>4</type>
+        <value>Something borrowed</value>
+    </Setting>
+</Config>

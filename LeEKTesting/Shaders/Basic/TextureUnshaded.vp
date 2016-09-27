@@ -1,0 +1,27 @@
+//GLSL color vertex shader.
+//We want to compile for GL 4.0
+#version 400
+
+//inputs
+layout(location = 0) in vec3 inPosition;
+layout(location = 3) in vec2 inTexCoord;
+
+out vec2 texCoord;
+
+//uniforms ("constants")
+uniform mat4 worldMat;
+uniform mat4 viewMat;
+uniform mat4 projectionMat;
+
+//now for the actual program...
+void main(void)
+{
+	mat4 worldViewMat = viewMat * worldMat;
+
+	vec4 viewPos = worldViewMat * vec4(inPosition, 1.0f);
+
+	//don't forget to set the position!
+	gl_Position = projectionMat * viewPos;
+
+	texCoord = vec2(inTexCoord);
+}
